@@ -32,3 +32,7 @@ third_party/sphincsplus-ref/sphincs+
 
 # Local benchmark binary from src
 src/wots_bench
+
+# Legacy non-JCE paper versions (kept on disk, not part of the artifact)
+paper/paper.html
+paper/paper.md
