@@ -1,0 +1,200 @@
+{
+  "table2_checksum_defect": {
+    "benchmark_message": "JCE extended benchmark message",
+    "rows": [
+      {
+        "w": 4,
+        "checksum": 178,
+        "legacy_encoded_digits": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "intended_digits": [
+          0,
+          2,
+          3,
+          0,
+          2
+        ],
+        "defect_confirmed": true
+      },
+      {
+        "w": 16,
+        "checksum": 451,
+        "legacy_encoded_digits": [
+          0,
+          0,
+          0
+        ],
+        "intended_digits": [
+          1,
+          12,
+          3
+        ],
+        "defect_confirmed": true
+      },
+      {
+        "w": 256,
+        "checksum": 3706,
+        "legacy_encoded_digits": [
+          0,
+          0
+        ],
+        "intended_digits": [
+          14,
+          122
+        ],
+        "defect_confirmed": true
+      }
+    ]
+  },
+  "table4_exact_chain_work": {
+    "message": "JCE extended benchmark message",
+    "rows": [
+      {
+        "w": 4,
+        "len1": 128,
+        "len2": 5,
+        "len": 133,
+        "sign_chain_calls": 206,
+        "verify_chain_calls": 193,
+        "keygen_chain_calls": 399,
+        "legacy_average": 199.5,
+        "excludes": "message/leaf/tree hashes and allocation"
+      },
+      {
+        "w": 16,
+        "len1": 64,
+        "len2": 3,
+        "len": 67,
+        "sign_chain_calls": 509,
+        "verify_chain_calls": 496,
+        "keygen_chain_calls": 1005,
+        "legacy_average": 502.5,
+        "excludes": "message/leaf/tree hashes and allocation"
+      },
+      {
+        "w": 256,
+        "len1": 32,
+        "len2": 2,
+        "len": 34,
+        "sign_chain_calls": 4454,
+        "verify_chain_calls": 4216,
+        "keygen_chain_calls": 8670,
+        "legacy_average": 4335.0,
+        "excludes": "message/leaf/tree hashes and allocation"
+      }
+    ]
+  },
+  "table5_exact_checksum_expectation": {
+    "model": "uniform message digest; correct checksum encoding",
+    "rows": [
+      {
+        "w": 4,
+        "expected_checksum_digit_sum": 6.984003,
+        "corrected_expected_sign_calls": 198.984003,
+        "approximation_L(w-1)/2": 199.5,
+        "exact_numerator_denominator": [
+          808692263395495842999602602507803796670115115269928079311806808835407696466466,
+          115792089237316195423570985008687907853269984665640564039457584007913129639936
+        ]
+      },
+      {
+        "w": 16,
+        "expected_checksum_digit_sum": 19.07738,
+        "corrected_expected_sign_calls": 499.07738,
+        "approximation_L(w-1)/2": 502.5,
+        "exact_numerator_denominator": [
+          2209009744630700369166523195714462514368690638673771367286395884114566531823680,
+          115792089237316195423570985008687907853269984665640564039457584007913129639936
+        ]
+      },
+      {
+        "w": 256,
+        "expected_checksum_digit_sum": 142.939453,
+        "corrected_expected_sign_calls": 4222.939453,
+        "approximation_L(w-1)/2": 4335.0,
+        "exact_numerator_denominator": [
+          16551257911783175316550864331759422922346804351083798201616607979724848423239680,
+          115792089237316195423570985008687907853269984665640564039457584007913129639936
+        ]
+      }
+    ]
+  },
+  "byte_accounting": {
+    "height": 4,
+    "rows": [
+      {
+        "w": 4,
+        "len1": 128,
+        "len2": 5,
+        "len": 133,
+        "explicit_key_payload_bytes": 8640,
+        "recovery_model_payload_bytes": 4384,
+        "explicit_plus_index_bytes": 8641,
+        "raw_secrets_16_leaves_kib": 66.5
+      },
+      {
+        "w": 16,
+        "len1": 64,
+        "len2": 3,
+        "len": 67,
+        "explicit_key_payload_bytes": 4416,
+        "recovery_model_payload_bytes": 2272,
+        "explicit_plus_index_bytes": 4417,
+        "raw_secrets_16_leaves_kib": 33.5
+      },
+      {
+        "w": 256,
+        "len1": 32,
+        "len2": 2,
+        "len": 34,
+        "explicit_key_payload_bytes": 2304,
+        "recovery_model_payload_bytes": 1216,
+        "explicit_plus_index_bytes": 2305,
+        "raw_secrets_16_leaves_kib": 17.0
+      }
+    ],
+    "lamport_wrapper": {
+      "sig_bytes": 8192,
+      "pk_bytes": 16384,
+      "path_bytes": 128,
+      "total_bytes": 24704,
+      "note": "before index and framing"
+    }
+  },
+  "repaired_checks": {
+    "w=4": {
+      "roundtrip_ok": true,
+      "endpoint_recovery_ok": true,
+      "tamper_rejected": true,
+      "wrong_message_rejected": true,
+      "truncation_rejected": true
+    },
+    "w=16": {
+      "roundtrip_ok": true,
+      "endpoint_recovery_ok": true,
+      "tamper_rejected": true,
+      "wrong_message_rejected": true,
+      "truncation_rejected": true
+    },
+    "w=256": {
+      "roundtrip_ok": true,
+      "endpoint_recovery_ok": true,
+      "tamper_rejected": true,
+      "wrong_message_rejected": true,
+      "truncation_rejected": true
+    }
+  },
+  "kat_check": {
+    "algorithm": "WOTS+ (n=32, w=16, len=67, SHA-256)",
+    "seed": "HBS-PQ-WOTS-KAT-v1-2026",
+    "roundtrip_ok": true,
+    "tamper_rejected": true,
+    "pk_prefix_hex": "d365850175988b1839d8a0850f36fa1fa26bd40849ca847f308acbf0f81f1a0a",
+    "note": "local regression vector for the defective algorithm, not a NIST conformance vector"
+  }
+}

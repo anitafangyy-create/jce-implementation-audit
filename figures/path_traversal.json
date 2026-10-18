@@ -1,0 +1,51 @@
+{
+  "per_config": {
+    "w=4,h=4": {
+      "rebuilt_median_ms": 0.006916,
+      "cached_median_ms": 0.000416,
+      "rebuilt_n": 45,
+      "cached_n": 45
+    },
+    "w=4,h=8": {
+      "rebuilt_median_ms": 0.105916,
+      "cached_median_ms": 0.000708,
+      "rebuilt_n": 45,
+      "cached_n": 45
+    },
+    "w=16,h=4": {
+      "rebuilt_median_ms": 0.006667,
+      "cached_median_ms": 0.000375,
+      "rebuilt_n": 45,
+      "cached_n": 45
+    },
+    "w=16,h=8": {
+      "rebuilt_median_ms": 0.105834,
+      "cached_median_ms": 0.000791,
+      "rebuilt_n": 45,
+      "cached_n": 45
+    },
+    "w=256,h=4": {
+      "rebuilt_median_ms": 0.006709,
+      "cached_median_ms": 0.000375,
+      "rebuilt_n": 45,
+      "cached_n": 45
+    },
+    "w=256,h=8": {
+      "rebuilt_median_ms": 0.101625,
+      "cached_median_ms": 0.000625,
+      "rebuilt_n": 45,
+      "cached_n": 45
+    }
+  },
+  "height_means": {
+    "h=4": {
+      "rebuilt": 0.006764,
+      "cached": 0.00038866666666666666
+    },
+    "h=8": {
+      "rebuilt": 0.10445833333333333,
+      "cached": 0.000708
+    }
+  },
+  "note": "Per-base medians over 45 observations; height means average the three per-base medians."
+}

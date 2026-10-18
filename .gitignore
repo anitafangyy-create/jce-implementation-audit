@@ -1,0 +1,34 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Internal review material (not part of the public artifact)
+archive/
+reports/
+
+# Legacy figure intermediates not referenced by the final manuscript
+figures/fig1_signature_size.png
+figures/fig2_pubkey_size.png
+figures/fig3_keygen_scaling.png
+figures/fig4_latency.png
+figures/fig5_wots_compression.png
+figures/fig6_cross_scheme_v2.png
+figures/fig7_latency_v2.png
+figures/fig_submission.eps
+figures/fig_submission.pdf
+figures/fig_submission.png
+paper/paper_preview.png
+paper/submission_results_preview.png
+
+# SPHINCS+ build products
+third_party/sphincsplus-ref/*.o
+third_party/sphincsplus-ref/*.a
+third_party/sphincsplus-ref/*.so
+third_party/sphincsplus-ref/sphincs+
+
+# Local benchmark binary from src
+src/wots_bench

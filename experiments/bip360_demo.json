@@ -1,0 +1,9 @@
+{
+  "script_pubkey_hex": "5220da33caac6fd00a26b7aa5be1dd18d903f199f97a9d01521c358abb132286e375",
+  "address": "bc1zfa744325f13521919e1c69e21682adb11758dc",
+  "root_recomputed": true,
+  "wots_signature_valid": true,
+  "secp256k1_leaf_witness_bytes": 133,
+  "wots_leaf_witness_bytes": 4325,
+  "p2tr_keypath_witness_bytes": 66
+}
