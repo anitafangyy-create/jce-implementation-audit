@@ -1,6 +1,6 @@
 {
-  "script_pubkey_hex": "5220da33caac6fd00a26b7aa5be1dd18d903f199f97a9d01521c358abb132286e375",
-  "address": "bc1zfa744325f13521919e1c69e21682adb11758dc",
+  "script_pubkey_hex": "52201ea31aa694cf56f3d580ec4d526fff5932ad81b127e70ce39cbbaa4aa6c4a6e3",
+  "address": "bc1z9f9238839b499095ec872b5949f05dc02d7bae",
   "root_recomputed": true,
   "wots_signature_valid": true,
   "secp256k1_leaf_witness_bytes": 133,

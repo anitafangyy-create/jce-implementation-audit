@@ -21,7 +21,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-REF = Path(__file__).parent / "sphincsplus-master" / "ref"
+REF = Path(__file__).resolve().parents[1] / "third_party" / "sphincsplus-ref"
 OUT = Path(__file__).parent
 
 PARAM_SETS = ["sphincs-sha2-128s", "sphincs-sha2-128f"]

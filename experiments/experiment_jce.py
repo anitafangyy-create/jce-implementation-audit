@@ -17,12 +17,9 @@ import dataclasses
 import json
 from pathlib import Path
 
-import sys as _sys
-_sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
-
 from hbs_signature import H, H_message, HASH_LEN
 
-OUT = Path(__file__).resolve().parents[1]
+OUT = Path(__file__).parent
 N = 32  # hash output bytes
 
 
@@ -185,8 +182,8 @@ def main():
               f"{r['verify_ms_mean']:>6.3f}±{r['verify_ms_std']:<5.3f} "
               f"{r['avg_chain_iters']:>10.0f}")
 
-    (OUT / "experiments" / "results_jce.json").write_text(json.dumps(rows, indent=2))
-    print(f"\n[written] {OUT/'experiments'/'results_jce.json'}")
+    (OUT / "results_jce.json").write_text(json.dumps(rows, indent=2))
+    print(f"\n[written] {OUT/'results_jce.json'}")
 
 
 if __name__ == "__main__":

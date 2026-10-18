@@ -1,102 +1,82 @@
-# Implementation Auditing of Hash-Based Signatures — Reproducible Artifacts
+# HBS-PQ：基于哈希的后量子签名研究原型
 
-Companion artifact package for the manuscript
+从零实现的 **Lamport OTS / WOTS+ + Merkle 树**研究原型（fixed-prefix 构造）。论文将其定位为实现审计、载荷核算与状态管理的可复现工程研究；**不声称与 NIST FIPS 204（ML-DSA）、FIPS 205（SLH-DSA）的安全等价**，标准方案尺寸仅作为 published size context 引用。研究动机为 **BIP-0360（Pay-to-Merkle-Root）** 所预留的后量子签名脚本路径。
 
-> **Implementation Auditing of Hash-Based Signatures: Encoding Correctness, Payload Accounting, and State Recovery Risks**
-> (revised 18 October 2026)
+投稿主稿：`paper/paper_jce.html`（Journal of Cryptographic Engineering 修订稿）；早期英文版：`paper/paper.html`。中文过程报告见 `reports/`。
 
-This repository contains the executable audit scripts, experiment harnesses,
-raw JSON results, figures, and the final manuscript HTML that support the
-paper's claims. The study is an **implementation audit and reproducibility
-study of a fixed-prefix Winternitz-style research prototype**. The prototype is
-a research construction, not a standards-conformant implementation; nothing in
-this repository establishes cryptographic security, a security level, or
-conformance to WOTS+, XMSS, or LMS.
+---
 
-## Repository layout
+## 目录结构
+
+| 目录 | 内容 |
+|---|---|
+| `src/` | 核心密码学实现：`hbs_signature.py`（Lamport OTS + Merkle 树）、`wots.py`（WOTS+）、`wots_bench.c`（C 基准）、`sphincs_vectors.py`（SPHINCS+ 官方 KAT 工具副本） |
+| `experiments/` | 实验脚本（`experiment*.py`、`make_kat.py`、`bip360_demo.py`）与实测数据（`results*.json`、`kat_wots.json`、`bip360_demo.json`、`kat_128s.rsp`） |
+| `charts/` | 图表与渲染脚本：`make_charts*.py`、`make_submission_figure.py`、`render_html.py`、`render_jce.py` |
+| `figures/` | 全部图表产物（`fig1..fig7`、`fig_jce_*`、`fig_submission.*`） |
+| `paper/` | 论文文稿：`paper.md/html`（早期版）、`paper_jce.md/html`（投稿主稿）及预览图 |
+| `audit/` | 原型审计（`audit_jce.py/json`）与抽象状态模型（`state_model_jce.py/json`） |
+| `reports/` | 中文研究报告（`RESEARCH_REPORT.md`）与投稿评估（`SUBMISSION_REVIEW.md`） |
+| `third_party/` | 第三方参考源码（`sphincsplus-ref/`，SPHINCS+ 官方实现，供 `src/sphincs_vectors.py` 校验 KAT 用） |
+| `archive/` | 历史备份（`备份1/`、`revision_backup/`），不参与运行，仅供追溯 |
+
+## 数据流
 
 ```
-audit/        Checksum-audit and bounded state-model scripts and outputs
-charts/       Figure/render pipeline (make_submission_figure.py, render_jce.py, ...)
-experiments/  Submission experiment harness, SPHINCS+ benchmark, raw JSON results
-figures/      figure3.png/svg (paper Figure 3) and path-traversal data
-paper/        paper_jce.html (final manuscript), paper_jce.md (source text)
-src/          Core prototype implementation (wots.py, hbs_signature.py, ...)
-third_party/  SPHINCS+ reference implementation used for same-machine baselines
-ARTIFACT_MANIFEST.txt   SHA-256 digest of every tracked artifact
+experiments/experiment_*.py  →  experiments/results*.json
+        ↘  make_kat.py → experiments/kat_wots.json → audit/audit_jce.py → audit/audit_jce.json
+
+charts/make_charts*.py  ──读 experiments/*.json + audit/audit_jce.json──→  figures/fig*.png
+charts/make_submission_figure.py ──读 experiments/results_submission.json──→ figures/figure3.*
+
+paper/paper*.md（引用 ../figures/fig*.png）──render_html/render_jce──→ paper/paper*.html（图片 base64 内嵌，离线可看）
 ```
 
-## Requirements
+## 快速开始
 
-- Python ≥ 3.10 (tested with CPython 3.14.7, macOS 15.7.7, arm64)
-- `matplotlib` (only for `make_submission_figure.py`)
-- `mistune` (only for `render_jce.py` markdown → HTML)
-- `cc`/`gcc` with a C99 compiler (only for the SPHINCS+ reference baseline)
-
-## Reproduce
-
-Run from the repository root:
+所有脚本基于自身位置定位项目根（`Path(__file__).resolve().parents[1]`），**从任意目录调用均可**，无需先 `cd`。
 
 ```bash
-# 1. Checksum-encoding audit and chain-call counts (paper Tables 2, 4, 5)
-python3 audit/audit_jce.py            # -> audit/audit_jce.json
+# 核心自检（纯标准库，无需第三方依赖）
+python3 src/wots.py                 # WOTS+ 自检
+python3 src/hbs_signature.py        # Lamport + Merkle 自检
 
-# 2. Bounded signing-state model (paper Section 7.5; 73 states / 355 transitions)
-python3 audit/state_model_jce.py      # -> audit/state_model_jce.json
+# KAT 向量 / 审计 / 状态模型（纯标准库）
+python3 experiments/make_kat.py     # 生成 experiments/kat_wots.json
+python3 audit/audit_jce.py          # 复现审计 → audit/audit_jce.json
+python3 audit/state_model_jce.py    # 73 状态 / 355 转移模型检查 → audit/state_model_jce.json
 
-# 3. Submission experiment: 270 paired samples, 5,130 functional checks
-#    (paper Tables 8, 9; serialized sizes 2,312-8,648 B explicit, 1,224-4,392 B compact)
-python3 experiments/experiment_submission.py   # -> experiments/results_submission.json
+# 基准实验（会覆盖对应 results*.json；计时含随机性）
+python3 experiments/experiment.py          # v1 Lamport
+python3 experiments/experiment_v2.py       # v2 Lamport vs WOTS+
+python3 experiments/experiment_submission.py  # 投稿版配对实验（较慢）
+python3 experiments/run_sphincs_benchmark.py  # SPHINCS+ 同机基准（内部编译 third_party/sphincsplus-ref，Table 7）
 
-# 4. Figure 3 (paper Figure 3)
-python3 charts/make_submission_figure.py       # -> figures/figure3.png/svg, figures/path_traversal.json
+# 图表（需 matplotlib + numpy）
+python3 charts/make_charts.py
+python3 charts/make_charts_v2.py
+python3 charts/make_submission_figure.py
 
-# 5. SPHINCS+ same-machine reference timings (paper Table 7)
-#    (requires building third_party/sphincsplus-ref first)
-cd third_party/sphincsplus-ref && make clean && make
-cd ../..
-python3 experiments/run_sphincs_benchmark.py  # -> experiments/sphincs_benchmark.json
-
-# 6. Manuscript rendering (optional; the committed paper_jce.html is authoritative)
-python3 charts/render_jce.py --from-markdown paper/paper_jce.md   # -> paper/paper_jce.html
+# 论文渲染（render_html 纯标准库；render_jce 需 mistune）
+python3 charts/render_html.py       # paper/paper.md → paper/paper.html
+python3 charts/render_jce.py        # paper/paper_jce.md → paper/paper_jce.html
 ```
 
-## Result files
+## 依赖
 
-| File | Contents |
-| --- | --- |
-| `experiments/results_submission.json` | 270 raw samples (3 trees × 15 leaves × 6 configs), environment record, per-config aggregates, SHA-256 of the four core scripts |
-| `experiments/results_jce.json` | Legacy (pre-fix) timing aggregates, used only as historical context in Table 6 |
-| `experiments/sphincs_benchmark.json` | SPHINCS+-128s / -128f reference timings (100 rounds, CLOCK_MONOTONIC) |
-| `audit/audit_jce.json` | Checksum-distribution tables, chain-call counts, KAT reproduction |
-| `audit/state_model_jce.json` | Bounded state model: 73 states, 355 transitions, invariant checks, Proposition 2 counterexample |
-| `figures/path_traversal.json` | Authentication-path traversal timing data (paper Table 9) |
-| `experiments/kat_wots.json` | Local regression vector for the defective algorithm (not a standards KAT) |
+| 脚本 | 依赖 |
+|---|---|
+| `src/*`、`experiments/*`、`audit/*`、`charts/render_html.py` | 仅 Python 3 标准库 |
+| `experiments/run_sphincs_benchmark.py` | C99 编译器（`cc`/`gcc`），自动编译 `third_party/sphincsplus-ref` |
+| `charts/make_charts*.py`、`charts/make_submission_figure.py` | `matplotlib`、`numpy` |
+| `charts/render_jce.py` | `mistune` |
 
-## SPHINCS+ reference implementation
+## 注意事项 / 已知事项
 
-`third_party/sphincsplus-ref/` is the reference implementation distributed by
-the SPHINCS+ project (upstream repository: `sphincsplus/sphincsplus`), kept
-under its original license (`LICENSE` in that directory). One modification is
-present: `benchmark_timing.c` no longer prints the `PARAMS` macro via a
-`%s`-format printf (the macro cannot be stringified portably). The timing
-harness uses `CLOCK_MONOTONIC` and 100 rounds.
-
-## Integrity
-
-`ARTIFACT_MANIFEST.txt` lists the SHA-256 digest and byte size of every tracked
-artifact. The committed `paper/paper_jce.html` was generated from the same
-numbers that these scripts reproduce.
-
-## License
-
-The code and materials in this repository (excluding `third_party/`) are
-released under the MIT License, see `LICENSE`. The SPHINCS+ reference code
-under `third_party/` remains under its own license terms.
-
-## Disclaimer
-
-This is a research prototype. The checksum defect, payload numbers, and state
-recovery results describe this construction and its repaired variant under
-explicitly defined experimental wire formats. They do not imply security,
-performance, or size superiority over any standardized signature scheme.
+1. **`make_charts_jce.py` 与新版 `audit_jce.json` 结构不匹配（整理前已存在，非本次整理引入）。** 当前 `audit/audit_jce.py` 重写后产出嵌套结构（数据在 `byte_accounting.rows` / `table4_exact_chain_work.rows`，字段为 `explicit_key_payload_bytes` / `sign_chain_calls` 等），而 `charts/make_charts_jce.py` 仍按旧结构读取顶层 `['rows']` 及旧字段名（`explicit_pk_payload_bytes` / `sign_steps`）。运行前需先同步其数据读取逻辑；`figures/fig_jce_*.png` 现有产物不受影响。
+2. **投稿图 3 的两套命名。** 磁盘产物为 `figures/fig_submission.png/.pdf/.eps`；`charts/make_submission_figure.py` 当前输出为 `figures/figure3.png/.svg` + `figures/path_traversal.json`，二者指向同一张论文 Figure 3。
+3. **实验脚本会覆盖 `results*.json`。** 计时类数据含运行随机性，重跑会使数值变化；KAT/audit/state_model 为确定性输出（固定种子），重跑结果稳定。
+4. **`src/sphincs_vectors.py`** 是 SPHINCS+ 官方仓库 `vectors.py` 的工具副本，用于生成/校验 NIST KAT 向量的 SHA-256 校验和，需外部 SPHINCS+ 参考源码树方可运行。
+5. **`archive/`** 内为历史版本备份（含早期论文、旧实验与第三方源码快照），仅作追溯，不影响上述任何流程。
+6. **`ARTIFACT_MANIFEST.txt`** 是一份 SHA-256 工件清单，但其文件名为**扁平形式**（如 `audit_jce.py`、`results_jce.json`），是目录整理前生成的；整理后同名文件已位于 `audit/`、`experiments/` 等子目录中，核对时请按新路径折算。清单中提到的 `paper_jce_v2.html` 当前不在工作树内。
+7. 原型为教学/研究级，未做域分离与常数时间硬化，**不可直接用于生产**（详见 `reports/RESEARCH_REPORT.md` 第 6 节与 `paper` 安全分析章节）。

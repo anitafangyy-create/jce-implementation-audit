@@ -8,7 +8,6 @@ __pycache__/
 
 # Internal review material (not part of the public artifact)
 archive/
-reports/
 
 # Legacy figure intermediates not referenced by the final manuscript
 figures/fig1_signature_size.png

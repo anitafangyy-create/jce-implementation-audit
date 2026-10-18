@@ -54,7 +54,8 @@ _sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from hbs_signature import H, H_message
 from experiment_jce import base_w, chain
 
-OUT = Path(__file__).resolve().parents[1]
+OUT = Path(__file__).parent
+ROOT = Path(__file__).resolve().parents[1]
 N = 32
 
 PK_MAGIC = b"HBP1"
@@ -441,14 +442,14 @@ def main():
         "artifact_hashes": {
             "experiment_submission.py": sha256_file(OUT / "experiment_submission.py"),
             "experiment_jce.py": sha256_file(OUT / "experiment_jce.py"),
-            "hbs_signature.py": sha256_file(OUT / "hbs_signature.py"),
-            "wots.py": sha256_file(OUT / "wots.py"),
+            "hbs_signature.py": sha256_file(ROOT / "src" / "hbs_signature.py"),
+            "wots.py": sha256_file(ROOT / "src" / "wots.py"),
         },
         "note": ("Descriptive means and sample standard deviations; shared "
                  "trees and a single host preclude treating the observations "
                  "as independent deployment trials."),
     }
-    out = OUT / "experiments" / "results_submission.json"
+    out = OUT / "results_submission.json"
     out.write_text(json.dumps(result, indent=2))
     print("[written]", out)
     print("total signing events:", len(raw))
