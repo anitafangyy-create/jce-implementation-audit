@@ -185,9 +185,9 @@ The current `auth_path` routine rebuilds successive tree layers and performs 2ʰ
 
 Table 6. Historical means ± sample standard deviations from `results_jce.json`, ten repetitions each. These are legacy defective-prototype timings with the measurement boundaries in Section 3.2.
 
-![Figure 1. Historical Python latency against explicit-public-key payload accounting. Error bars are recorded sample standard deviations, not confidence intervals. The code has a defective checksum; a complete serialized verification path was not timed.](fig_jce_wtradeoff.png)
+![Figure 1. Historical Python latency against explicit-public-key payload accounting. Error bars are recorded sample standard deviations, not confidence intervals. The code has a defective checksum; a complete serialized verification path was not timed.](../figures/fig_jce_wtradeoff.png)
 
-![Figure 2. Exact chain calls for the fixed benchmark message, separating signing from verification. These counts describe the legacy implementation and exclude all non-chain operations.](fig_jce_costmodel.png)
+![Figure 2. Exact chain calls for the fixed benchmark message, separating signing from verification. These counts describe the legacy implementation and exclude all non-chain operations.](../figures/fig_jce_costmodel.png)
 
 Increasing w reduces the number of transmitted chain values while increasing chain work. The w = 256 configuration has the smallest payload and highest recorded signing and verification latency among the three points. The data do not establish a general Pareto optimum across implementations or secure schemes, nor do they isolate Python loop overhead as the cause of the observed timing differences.
 
@@ -255,7 +255,7 @@ Rebuilding requires 2ʰ − 1 internal hashes per path, while cached lookup read
 
 The run executes 5,130 counted positive/negative checks: for each signing event, two successful verifications, sixteen rejections across the two modes, and one repeated-index rejection. Rejection cases cover changed signature bytes, wrong messages, truncation, appended bytes, invalid mode, changed path, changed index, and wrong root. Additional assertions check path equality and distribution normalization. These establish functional behavior on the sampled inputs; they are not a security proof, exhaustive parser fuzzing, or independent standards-conformance testing.
 
-![Figure 3. Repaired-variant verification and path-construction measurements. Panel (a) shows means with one sample standard deviation. Panel (b) averages the three per-base path-time medians at each height; it is descriptive and has no confidence interval.](fig_submission.png)
+![Figure 3. Repaired-variant verification and path-construction measurements. Panel (a) shows means with one sample standard deviation. Panel (b) averages the three per-base path-time medians at each height; it is descriptive and has no confidence interval.](../figures/fig_submission.png)
 
 ### 6.6 Threats to validity
 
