@@ -570,13 +570,13 @@ This study makes the signature interface and recovery assumptions explicit. The 
 
 [7] C. Shikhelman, M. Komarov, and A. Moskvin. *Shielded Bitcoin: Private Transfers on the Bitcoin L1.* 24 September 2026. Sections 17–20 and Appendix A. [Author-hosted manuscript](https://www.allocinit.xyz/uploads/shielded-bitcoin.pdf); accessed 19 October 2026.
 
-[8] A. Hülsing. *W-OTS+ — Shorter Signatures for Hash-Based Signature Schemes.* AFRICACRYPT 2013, pp. 173–188. [DOI](https://doi.org/10.1007/978-3-642-38553-7_10). [Author manuscript](https://eprint.iacr.org/2017/965.pdf); accessed 19 October 2026.
+[8] A. Hülsing. *W-OTS+ — Shorter Signatures for Hash-Based Signature Schemes.* In *Progress in Cryptology — AFRICACRYPT 2013*, LNCS, vol. 7918, pp. 173–188. Springer, 2013. [DOI](https://doi.org/10.1007/978-3-642-38553-7_10). [Author manuscript (IACR ePrint 2017/965)](https://eprint.iacr.org/2017/965.pdf); accessed 19 October 2026.
 
 [9] B. Romansky, T. Mazzuchi, and S. Sarkani. *Stateful Hash-Based Signature (SHBS) Benchmark Data for XMSS and LMS.* arXiv:2502.06033, 2025. [Preprint](https://doi.org/10.48550/arXiv.2502.06033); accessed 19 October 2026.
 
-[10] H. Beast, E. Heilman, and I. Foxen Duke. *Pay-to-Merkle-Root (P2MR).* BIP 360, draft, version 0.12.1; master branch at commit `e7263a4cfe50` (2026-08-03); accessed 28 September 2026. [Proposal](https://github.com/bitcoin/bips/blob/master/bip-0360.mediawiki).
+[10] H. Beast, E. Heilman, and I. Foxen Duke. *Pay-to-Merkle-Root (P2MR).* BIP 360, draft, version 0.12.1; commit `e7263a4cfe50` (2026-08-03); accessed 28 September 2026. [Proposal (fixed revision)](https://github.com/bitcoin/bips/blob/e7263a4cfe500c89e4269889244606953691ca33/bip-0360.mediawiki).
 
-[11] PQClean. *Clean Implementations of Post-Quantum Cryptography.* Commit `0586a82`; accessed 19 October 2026. [Repository](https://github.com/PQClean/PQClean).
+[11] PQClean. *Clean Implementations of Post-Quantum Cryptography.* Commit `0586a82`; repository archived 4 August 2026 (read-only); accessed 19 October 2026. [Repository (fixed commit)](https://github.com/PQClean/PQClean/tree/0586a824fc0d49df0b6b6e9179d8d15d06d0974f).
 
 ## Appendix A. Local Regression Vector
 

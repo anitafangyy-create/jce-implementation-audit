@@ -2,7 +2,7 @@
 
 Scope: prove that the numbers cited in the paper come from a real,
 rerunnable pipeline (not fabricated). Evidence below was produced by
-`make audit-data` on 2026-10-19 17:02:55.
+`make audit-data` on 2026-10-19 17:19:50.
 Environment: darwin / CPython 3.14.7
 
 ## A. Deterministic regeneration (5 scripts vs MANIFEST)
@@ -29,9 +29,9 @@ Environment: darwin / CPython 3.14.7
   artifact wots.py                    recorded=42e8fab55e44 current=42e8fab55e44  current file == recorded
 - [PASS] C1. recorded artifact hashes == current files: all 4 recorded hashes match the working-tree files (reproducible as-is)
   experiments/experiment_jce.py: COMMITTED (HEAD==current)
-  experiments/experiment_submission.py: UNCOMMITTED worktree (HEAD=e3542fef0e64, current=dd07ab4c889e)
-  src/wots.py: UNCOMMITTED worktree (HEAD=28cfeeac3aa4, current=42e8fab55e44)
-  src/hbs_signature.py: UNCOMMITTED worktree (HEAD=7cb3b694ac11, current=b815f95f5a51)
+  experiments/experiment_submission.py: COMMITTED (HEAD==current)
+  src/wots.py: COMMITTED (HEAD==current)
+  src/hbs_signature.py: COMMITTED (HEAD==current)
 - [PASS] C2. git versioning status documented: experiment_jce.py committed; experiment_submission.py + src/wots.py + src/hbs_signature.py are uncommitted working-tree versions (git HEAD keeps the earlier revision)
   legacy CPython 3.14.7 sample archived: experiments/results_submission_2026-10-19_py3147.json (sha 6b213fe33d9c)
 - [PASS] C3. legacy sample archived separately: old sample kept as its own file; paper forbids mixing old/new timings
@@ -46,13 +46,13 @@ Environment: darwin / CPython 3.14.7
 - [PASS] D0. inline repaired checksum (shift+mask): 270 events use the repaired digit extraction
   w=4,h=4: 45 rows in 0.09s bytes 8648/4392 (stored 8648/4392) positives=True rejections=True first-use=45/45 OK
   w=4,h=8: 45 rows in 0.25s bytes 8776/4520 (stored 8776/4520) positives=True rejections=True first-use=45/45 OK
-  w=16,h=4: 45 rows in 0.14s bytes 4424/2280 (stored 4424/2280) positives=True rejections=True first-use=45/45 OK
-  w=16,h=8: 45 rows in 0.42s bytes 4552/2408 (stored 4552/2408) positives=True rejections=True first-use=45/45 OK
-  w=256,h=4: 45 rows in 1.09s bytes 2312/1224 (stored 2312/1224) positives=True rejections=True first-use=45/45 OK
-  w=256,h=8: 45 rows in 3.26s bytes 2440/1352 (stored 2440/1352) positives=True rejections=True first-use=45/45 OK
-- [PASS] D. production rerun reproduces structure/bytes/correctness: all 6 configs: 45 rows, bytes == authoritative, all checks pass (5.2s total)
+  w=16,h=4: 45 rows in 0.15s bytes 4424/2280 (stored 4424/2280) positives=True rejections=True first-use=45/45 OK
+  w=16,h=8: 45 rows in 0.44s bytes 4552/2408 (stored 4552/2408) positives=True rejections=True first-use=45/45 OK
+  w=256,h=4: 45 rows in 1.13s bytes 2312/1224 (stored 2312/1224) positives=True rejections=True first-use=45/45 OK
+  w=256,h=8: 45 rows in 3.37s bytes 2440/1352 (stored 2440/1352) positives=True rejections=True first-use=45/45 OK
+- [PASS] D. production rerun reproduces structure/bytes/correctness: all 6 configs: 45 rows, bytes == authoritative, all checks pass (5.4s total)
   timing order-of-magnitude (rerun vs authoritative median, w16h4):
-    rerun explicit median=0.2038 ms | authoritative global median=0.2597 ms
+    rerun explicit median=0.2096 ms | authoritative global median=0.2597 ms
 
 ## E. BIP 360 official vectors (vendored vs upstream)
   vendored: version=1 vectors=9

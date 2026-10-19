@@ -64,7 +64,7 @@
   {
    "name": "D. production rerun reproduces structure/bytes/correctness",
    "ok": true,
-   "detail": "all 6 configs: 45 rows, bytes == authoritative, all checks pass (5.2s total)"
+   "detail": "all 6 configs: 45 rows, bytes == authoritative, all checks pass (5.4s total)"
   },
   {
    "name": "E. vendored BIP 360 vectors match upstream",

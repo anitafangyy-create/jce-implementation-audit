@@ -1,9 +1,13 @@
 # ARTIFACT_MANIFEST.txt — SHA-256 of the reproducible artifact set (repo-root-relative paths).
 # Regenerated 2026-10-19 (round 8/9/10): code audit, same-construction C port, tests,
 # paired Python/C measurement (h = 8), regenerated KAT and Figure 4.
+# Round 12 (2026-10-19 17:00): all four submission figures re-emitted at 300 dpi
+# (JCE requirement); fig_submission.png regenerated from current data (was a stale
+# Sep-28 build) and now matches figure3.png; added fig_submission.pdf/.eps vector
+# exports and the two JCE figures to the tracked set.
 # Format: <sha256>  <size-bytes>  <path>
-79520a31670492b1467a16fc70c45d96e979700bcf60e1860b1a1a00e7954ffc    88500  paper/paper_jce.md
-a97ace68a517c943232e7445f9aa7fe50fb984c820e45d17969b6a13ddade327   893287  paper/paper_jce.html
+66020c131179e95410783d7f76b09bc69d01fa145a5a12ddc81ae6ec88e9c30f    88730  paper/paper_jce.md
+28e6def07e352aa73adceb1b5b58e99ea83b45ea488d16184072192e24fbf58e   893524  paper/paper_jce.html
 c9d9caebb6cddf820d3d4d552d5440f613c8466aca97bc393ed2f241439ae277     9747  charts/render_jce.py
 b809377207d107aeb262c7c4421315f94529a8e04ce209417f464a51207e43b2    26168  audit/audit_jce.py
 7f589189f0cf5beb114fe4f8bf94068f6f0b4888e1e7b95ec86487438b5c3c01    16220  audit/audit_jce.json
@@ -18,6 +22,11 @@ c7c100dec5765c0ce102f488204048bcafa45bff57c90ef6cbf516828c69c82d     4332  exper
 ac9164db4dabd75dd1bc9a6faefb4cca5e1f979f4fa762a47178accd44eb7813     6979  charts/make_submission_figure.py
 fae03f7d5701e837c2e97081fa7d78d63a3474bc75391d6f8ddc29efdf810acf   141501  figures/figure3.png
 6d9bf56e7b9476a0ed7e52d64c2ce837c1b7fc3e2634034a316acac2d85ec1ef    65108  figures/figure3.svg
+c5cfb414e153b0d0a59caf301b453bb7c8b49743de13bad12df9ec2433372b36   164969  figures/fig_jce_wtradeoff.png
+ca8dc216fc7f3014cfcb6b29b9a26de1cc4d41db466a1a9cbc463f2d6c0f176b    89528  figures/fig_jce_costmodel.png
+fae03f7d5701e837c2e97081fa7d78d63a3474bc75391d6f8ddc29efdf810acf   141501  figures/fig_submission.png
+a1adb485c39213962b078936d6437423e8d87549607b0d5176e1ea565ee490c5    17616  figures/fig_submission.pdf
+86f6e2a0e5b7f75ea9ed1e4ca1555f336d2e3484f062d8d0277f9bede13a0d16    41545  figures/fig_submission.eps
 11199eabe4d90d3301e691bb30a12bf77978bacf16f1765cf9d80aff7943a109     1175  figures/path_traversal.json
 2812f690b8adb52363b780ef7408b268b98a98fad838c0056c4d98f4fdd53211     3337  experiments/run_sphincs_benchmark.py
 2ea28b56fc44bd16c32c683bfd9490055870f3facabc955479de7008da342d5c    23852  experiments/sphincs_benchmark.json
@@ -43,7 +52,7 @@ a49f8275f820223e2e55faa2d2ee3f6ea289de4606f9f93cb00ff76c3ca749f6      917  bench
 7541d08ede6acf9829424b396b35ebcd5aa3bf645e788e2c8c1b942ddbc68900    41103  experiments/native_results_sessions.json
 3dce9747683cb15518e93f4c0b59968d48961725f33687d17d0abd646ff5194a   183048  figures/fig_native_benchmark.png
 7df4750d09fea4e32b315aa4bf4b2f39696bea6cc94c091076ecd85d98b0b29b     1731  Makefile
-c748d6b8b8c74e1c114c0d2a20b321fb5d9806de2e5a5ba04ad8595ab8644cba    22352  SUBMISSION_CHECKLIST.md
+0a48340cd97c65e42731d9c218488f73d2d055b5d1e404f7088c1242f537caf5    25088  SUBMISSION_CHECKLIST.md
 85dbb168683754f5bda931bf3c6b8c8126dcdf2e48a85460cdb5f639fceff4fc     8152  src/ledger_store.py
 1a6d75c3e3b267eb03873cf8fcef1a1f59b4fd7cdc884ad22c03dcabdeed354d    12852  audit/state_persistence_tests.py
 21692fe360e8bd1615ef9624e2ba45382284325f6da01ba219df5993f4870c61     1793  audit/state_persistence_tests.json
@@ -70,5 +79,5 @@ e0792c91a547e338eb42308c3abaca84bfbc2c2023574e87a592702c7755a0c5    10362  tests
 cc83406024e4ecc9a38b37927c1013b53db75ade05b6677540657af83d889263   104382  experiments/_sessions/session2.json
 abdca9e95a3f09320a32ab19784066049be014f711db7b106182412c160440ca   104362  experiments/_sessions/session3.json
 e04eb30ff140009d8edc506b95131818702789ef3d7764f4c4e6989644a79d91    16992  audit/data_authenticity_audit.py
-a112178f7c9b7dacb9843146e4b8328b773efd417802b8db6702c38d98f1edb9     2314  audit/data_authenticity_audit.json
-d86ba810bbaa29ccbdb46036c999ad3f219e7501870a60c5393a23fc0a9a2ba2     7717  reports/DATA_AUTHENTICITY_AUDIT.md
+608b48ac15189c1a09048fad961c79a6fb24a9583f88ab28905e7c694f0b6a4f     2314  audit/data_authenticity_audit.json
+1da543d981fa55e72b2e030df9018a31d8a2a39ca0545dc0223a16ac2968181b     7606  reports/DATA_AUTHENTICITY_AUDIT.md

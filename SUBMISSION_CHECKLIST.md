@@ -197,3 +197,27 @@
 - [x] **HTML 重渲染**：589,487 B、20 表、校验通过；`make test` 全过。
 - [ ] **BIP 360 正文压缩/附录化**：方案 P2 项，尚未执行（当前 §8 已明确为示意核算）。
 - [ ] **公开仓库 + DOI + 版本标签**：作者操作，仍未完成。
+
+## 第十二轮（2026-10-19 17:00）：图表 DPI 收尾 + 投稿就绪判定
+
+- [x] **四张投稿图全部达标 300 dpi（JCE 硬性要求）**：原 dpi 分别为 180 / 180 / 160 / 220，均不达标；现 `fig_jce_wtradeoff.png`、`fig_jce_costmodel.png`、`fig_submission.png`、`fig_native_benchmark.png` 均为 **300 dpi**（像素 2700×1500 / 2700×1500 / 3300×1260 / 3360×1290）。
+- [x] **修复 Figure 3 陈旧图**：论文引用 `fig_submission.png`，但该文件停在 Sep-28（含缺陷口径），与 `figure3.png` 不同步；本次重生成 `fig_submission.png` 并新增矢量版 `fig_submission.pdf` / `.eps`（供 LaTeX/Word 直接嵌入），现两者字节一致。
+- [x] **脚本口径固化**：`make_charts_jce.py`(180→300)、`make_native_figure.py`(220→300)、`make_submission_figure.py`(160→300，并多写 `fig_submission.{png,pdf,eps}`)。重跑三脚本无误。
+- [x] **HTML 重渲染**：893,287 B、内嵌 4 图均 ~300 dpi、20 表、校验通过。
+- [x] **回归**：12 项测试/审计（5 测试 + 7 脚本）全部 PASS；`make test` 口径保持全过。
+- [x] **MANIFEST 刷新**：`ARTIFACT_MANIFEST.txt` 新增 `fig_submission.png/.pdf/.eps` 与两张 JCE 图，补回论文实际引用却未追踪的条目；`figure3.png` 哈希不变。
+
+### 投稿就绪判定（结论）
+**当前稿件（HTML）不可直接投。** JCE 要求 Springer *iicol* LaTeX 或 Word 模板；HTML 仅作评审/预览产物。进入投稿阶段前，按责任划分尚余：
+
+- **作者操作（硬门槛）**
+  1. 转 **LaTeX（Springer iicol）或 Word**：HTML→源格式转换 + 参考文献 `[iicol]` 样式 + 图改为 `.pdf/.eps` 矢量嵌入（已备齐）。
+  2. **公开仓库 + Zenodo DOI + tag v1.0**：审稿包须可公开获取。
+  3. `git commit` 版本化未提交文件（`experiment_submission.py`、`src/wots.py`、`src/hbs_signature.py` 等），随审稿包提交。
+- **待本仓后续（建议，非阻断）**
+  4. **BIP 360 正文压缩/附录化**（方案 P2）：当前 §8 已声明为示意核算，可保留。
+  5. `RESPONSE_TO_REVIEWERS.md` 译英文 + 表号映射（若附 rebuttal）。
+- **跨仓一致性（阻断，需另仓处理）**
+  6. **论文二 `hash-based-signature-proposal/native_bench/bench_proto.c` 的 compact 双遍链缺陷**：仅 `/tmp` 副本修正，原仓未改；若两篇同时投，需在原仓修复并三会话重跑，否则口径（0.13–0.25 vs 修正后 0.143 ms）不一致。
+
+> 评估口径：本仓（jce-implementation-audit）的实验、代码、数据溯源、BIP 向量、可复现性、图表 DPI 均已达标；剩余项主要为**格式转换 + 公开/DOI（作者）** 与 **跨仓缺陷修复（另仓）**。

@@ -212,6 +212,18 @@
 | 参考文献 [7] | 补访问日期（2026-10-19）；PDF 在线可访问，版本与引用一致 |
 | 参考文献 [10] | 补 master 提交哈希 `e7263a4cfe50`（2026-08-03）；§8.1 同步 |
 
+### 2026-10-19 外部 11 条文献核验意见回应
+
+按 RFC Editor / NIST / IACR ePrint / arXiv / GitHub 原始来源逐条复核（区分"文献存在"与"引用信息准确"）：
+
+| 文献 | 外部核验结论 | 本项目独立复核 | 处理 |
+|---|---|---|---|
+| [1]–[6], [9] | 真实，书目信息基本匹配 | 一致 | 无需修改 |
+| [7] Shielded Bitcoin | 作者基本对应；2026-09-24 日期与 §17–20/Appendix A 未确认 | 已抓取 PDF 首页与目录复核：标题、三位作者、日期 2026-09-24、§17–20 与 Appendix A 全部匹配 | 无需修改 |
+| [8] W-OTS+ | 规范为 AFRICACRYPT 2013, LNCS 7918, pp. 173–188, DOI 10.1007/978-3-642-38553-7_10；ePrint 2017/965 为作者手稿 | DOI 正确；ePrint 2017/965 为作者手稿 | 已补 LNCS 卷号与完整会议信息；DOI 为主链接，ePrint 标注为 Author manuscript |
+| [10] BIP 360 | master 为可变分支，需固定 commit 永久链接 | commit `e7263a4cfe500c89e4269889244606953691ca33` 存在（PR #2223 "correct the claimed P2MR witness size saving"），与 §8 witness 口径一致 | 链接已改为固定 commit 永久链接（不再指向 master） |
+| [11] PQClean | 提交号待核；仓库 2026-08 已归档 | commit `0586a824fc0d49df0b6b6e9179d8d15d06d0974f` 存在（retirement README 更新）；仓库已于 2026-08-04 归档（read-only） | 链接已改为固定 commit；补注归档状态 |
+
 ## 对审稿结论三项"最重要修改"的自查
 
 1. ✅ 270/180/90 来源已解释且统计可由 `check_counts.py` 自动复现（附录 B 表 13）。
