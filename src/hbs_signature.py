@@ -15,8 +15,11 @@ This is the exact design family behind:
     * SLH-DSA / SPHINCS+ (FIPS 205)
 
 Security assumption: SHA-256 (FIPS 180-4). Shor's algorithm gives no
-speedup on hash preimages; Grover only halves the bit security, so a
-256-bit hash still gives ~128-bit post-quantum security.
+speedup on hash preimages, and Grover at most halves the bit security, so a
+256-bit hash sits in the ~128-bit regime. That is a statement about the hash,
+not about this construction: the code uses an unkeyed fixed-prefix hash with
+no address input, so it does not inherit the FIPS 205 security argument and
+no cryptographic security level is claimed for the scheme as a whole.
 
 Reference datasets / test-vector families used:
     * SPHINCS+ reference implementation & KAT vectors:

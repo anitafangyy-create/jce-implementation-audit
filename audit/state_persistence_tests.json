@@ -1,0 +1,58 @@
+{
+  "backend": "SQLite (WAL for concurrent/crash; DELETE for rollback copies)",
+  "concurrent_transaction_tests": {
+    "multi_process": {
+      "workers": 8,
+      "pool": 12,
+      "total_requests": 96,
+      "successful_reservations": 12,
+      "unique_successes": 12,
+      "duplicate_allocations": 0,
+      "expected_unique": 12,
+      "all_unique": true,
+      "no_loss": true
+    },
+    "multi_thread": {
+      "threads": 16,
+      "pool": 12,
+      "total_requests": 192,
+      "successful_reservations": 12,
+      "unique_successes": 12,
+      "duplicate_allocations": 0,
+      "expected_unique": 12,
+      "all_unique": true,
+      "no_loss": true
+    }
+  },
+  "crash_injection_tests": {
+    "crash_before_commit": {
+      "crash_before_commit_rolled_back": true,
+      "key_re_reservable_after_crash": true
+    },
+    "crash_after_commit": {
+      "crash_after_commit_persisted": true,
+      "reuse_rejected_after_crash": true
+    }
+  },
+  "rollback_tests": {
+    "consistent_snapshot_restore": {
+      "checkpoint_epoch": 2,
+      "restored_snapshot_epoch": 3,
+      "rollback_detected": false,
+      "continue_ok": true,
+      "consumed_indices_still_consumed": true,
+      "reuse_rejected": true
+    },
+    "old_backup_rollback": {
+      "checkpoint_epoch": 3,
+      "backup_epoch": 1,
+      "rollback_detected": true,
+      "root_disabled": true,
+      "consumed_indices_reissued": false,
+      "consumed_indices_still_consumed": true,
+      "reuse_rejected": true
+    }
+  },
+  "all_as_expected": true,
+  "note": "SQLite covers process-crash safety: uncommitted transactions roll back and committed ones survive os._exit-style crashes. Power-loss durability, multi-host coordination, and hardware faults remain out of scope (Section 9.3); multi-process tests run on one host."
+}

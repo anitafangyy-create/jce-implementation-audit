@@ -31,7 +31,17 @@ Checks: for every signing event the run performs two successful
 verifications (both modes), sixteen rejections (eight per mode:
 changed signature bytes, wrong message, truncation, appended bytes,
 invalid mode, changed path, changed index, wrong root), and one
-repeated-index rejection: 19 counted checks per event, 5,130 total.
+key-identity bookkeeping record: 19 counted checks per event, 5,130
+total.
+
+One-time key identity: the signer ledger is keyed by (tree, index),
+not by index alone.  Each of the three trees carries independent key
+material (Section 2.3), so the same leaf index in different trees is a
+different one-time key.  All 270 measured events are first uses of
+distinct (tree, index) keys; reuse rejection is exercised by the audit
+script's key-identity state tests (audit_jce.json).  This implements
+the reviewer round-3 correction; earlier runs keyed the ledger by
+index alone, which mislabeled cross-tree same-index leaves as reuse.
 
 Timings use perf_counter_ns.  The environment is recorded verbatim.
 """
@@ -43,9 +53,12 @@ import math
 import os
 import platform
 import random
+import ssl
 import statistics
+import subprocess
 import sys
 import time
+from datetime import datetime, timezone
 from pathlib import Path
 
 import sys as _sys
@@ -329,7 +342,7 @@ def run_config(w: int, h: int, rng: random.Random):
     """Run one (w,h) configuration; return aggregated observations."""
     p = params(w)
     rows = []          # one entry per measured leaf
-    used_indexes = set()
+    used_keys = set()  # one-time key identity: (tree, index); see module docstring
     # independent trees
     for t in range(TREES_PER_CONFIG):
         tree_seed = H(b"SUB-TREE" + bytes([W_TO_CODE[w], h, t]))
@@ -349,9 +362,12 @@ def run_config(w: int, h: int, rng: random.Random):
             msg = rng.randbytes(32)
             sig_explicit, sig_compact = sign(msg, leaf, w, h, sk, pk, layers)
             pk_bytes = pack_pk(w, h, layers[h][0])
-            # repeated-index rejection (once per signing event)
-            used_ok = leaf in used_indexes
-            used_indexes.add(leaf)
+            # key-identity bookkeeping (once per signing event): a fresh
+            # (tree, index) key is a first use; an already-consumed key of
+            # the same tree must be rejected.
+            kid = (t, leaf)
+            used_ok = kid in used_keys
+            used_keys.add(kid)
             # successful verifications, alternating order by trial
             t0 = time.perf_counter_ns()
             verify(msg, sig_explicit, pk_bytes, expect_mode=0)
@@ -394,13 +410,19 @@ def run_config(w: int, h: int, rng: random.Random):
     agg["n"] = len(rows)
     agg["all_positive_ok"] = all(r["positive_ok"] for r in rows)
     agg["all_rejections_ok"] = all(r["rejections_ok"] for r in rows)
-    # repeated-index check: first-use rows are expected to pass (not
-    # rejected); every later use of an already-consumed index must be
-    # rejected by the process-local used-index set.
+    # key-identity bookkeeping: under (tree, index) identity every measured
+    # event is a first use, so no measured event may be flagged as reuse.
+    # Reuse rejection for same-tree same-index keys is exercised separately
+    # by the audit script's key-identity state tests (audit_jce.json).
     agg["repeated_usage_count"] = sum(1 for r in rows if r["repeated_index_rejected"])
     agg["repeated_usage_all_rejected"] = all(
-        r["repeated_index_rejected"] or (r["tree"] == 0)
-        for r in rows)
+        not r["repeated_index_rejected"] for r in rows)
+    agg["key_identity"] = {
+        "keyed_by": "(tree_id, leaf_index)",
+        "measured_events": len(rows),
+        "first_use_events": len(rows) - agg["repeated_usage_count"],
+        "rejected_reuse_attempts": agg["repeated_usage_count"],
+    }
     return rows, agg
 
 
@@ -408,14 +430,60 @@ def sha256_file(path: Path) -> str:
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
+def cpu_brand() -> str:
+    """Detected CPU model, not an asserted string."""
+    try:
+        if sys.platform == "darwin":
+            out = subprocess.run(["sysctl", "-n", "machdep.cpu.brand_string"],
+                                 capture_output=True, text=True, timeout=5)
+            if out.returncode == 0 and out.stdout.strip():
+                return out.stdout.strip()
+        elif sys.platform.startswith("linux"):
+            for line in Path("/proc/cpuinfo").read_text().splitlines():
+                if line.startswith("model name"):
+                    return line.split(":", 1)[1].strip()
+    except (OSError, subprocess.SubprocessError):
+        pass
+    return platform.processor() or "unknown"
+
+
+def load_average():
+    try:
+        return [round(x, 3) for x in os.getloadavg()]
+    except (OSError, AttributeError):
+        return None
+
+
 def main():
+    args = sys.argv[1:]
+    out_path = OUT / "results_submission.json"
+    session = None
+    for i, a in enumerate(args):
+        if a == "--out" and i + 1 < len(args):
+            out_path = Path(args[i + 1])
+        elif a == "--session" and i + 1 < len(args):
+            session = args[i + 1]
+
     rng = random.Random(20260915)
+    clock = time.get_clock_info("perf_counter")
     env = {
         "python": sys.version.split()[0],
+        "python_full": sys.version.replace("\n", " "),
         "implementation": platform.python_implementation(),
         "platform": platform.platform(),
         "machine": platform.machine(),
+        "cpu_brand": cpu_brand(),
+        "cpu_count_logical": os.cpu_count(),
+        "openssl": ssl.OPENSSL_VERSION,
         "perf_counter_ns": "used",
+        "clock": {
+            "implementation": clock.implementation,
+            "resolution_s": clock.resolution,
+            "monotonic": clock.monotonic,
+        },
+        "loadavg_1_5_15": load_average(),
+        "session": session,
+        "started_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
     }
     configs = {}
     raw = []
@@ -449,7 +517,8 @@ def main():
                  "trees and a single host preclude treating the observations "
                  "as independent deployment trials."),
     }
-    out = OUT / "results_submission.json"
+    out = out_path
+    out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(result, indent=2))
     print("[written]", out)
     print("total signing events:", len(raw))

@@ -1,0 +1,1758 @@
+{
+  "environment": {
+    "cpu": "Apple M1 (arm64)",
+    "compiler": "Apple clang 17.0.0",
+    "pqclean_commit": "0586a82",
+    "sessions": 3,
+    "cooldown_s": 12,
+    "reps_standards": 101,
+    "reps_prototype": 31,
+    "message_bytes": 64,
+    "timing": "clock_gettime(CLOCK_MONOTONIC)",
+    "note": "Rotated session order; no CPU pinning; PQClean clean C. Reported values are cross-session medians with the min/max range across the per-session medians."
+  },
+  "sessions": [
+    {
+      "session": 1,
+      "order": [
+        "mldsa44",
+        "mldsa65",
+        "sphincs128f",
+        "sphincs128s",
+        "proto"
+      ],
+      "rows": [
+        {
+          "scheme": "ML-DSA-44",
+          "pk": 1312,
+          "sk": 2560,
+          "sig": 2420,
+          "keygen_ms": 0.06,
+          "keygen_iqr": 0.001,
+          "sign_ms": 0.23,
+          "sign_iqr": 0.2215,
+          "verify_ms": 0.064,
+          "verify_iqr": 0.002,
+          "verify_ok": 1
+        },
+        {
+          "scheme": "ML-DSA-65",
+          "pk": 1952,
+          "sk": 4032,
+          "sig": 3309,
+          "keygen_ms": 0.116,
+          "keygen_iqr": 0.001,
+          "sign_ms": 0.339,
+          "sign_iqr": 0.2915,
+          "verify_ms": 0.104,
+          "verify_iqr": 0.002,
+          "verify_ok": 1
+        },
+        {
+          "scheme": "SLH-DSA-SHA2-128f (PQClean)",
+          "pk": 32,
+          "sk": 64,
+          "sig": 17088,
+          "keygen_ms": 1.127,
+          "keygen_iqr": 0.02,
+          "sign_ms": 25.989,
+          "sign_iqr": 0.528,
+          "verify_ms": 1.598,
+          "verify_iqr": 0.038,
+          "verify_ok": 1
+        },
+        {
+          "scheme": "SLH-DSA-SHA2-128s (PQClean)",
+          "pk": 32,
+          "sk": 64,
+          "sig": 7856,
+          "keygen_ms": 74.336,
+          "keygen_iqr": 6.6865,
+          "sign_ms": 577.913,
+          "sign_iqr": 57.9105,
+          "verify_ms": 0.555,
+          "verify_iqr": 0.0465,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": false,
+          "h": 1,
+          "n": 2,
+          "keygen_ms": 0.555,
+          "keygen_iqr": 0.0465,
+          "sign_ms": 0.125,
+          "sign_iqr": 0.0015,
+          "verify_ms": 0.129,
+          "verify_iqr": 0.002,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 4328,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": false,
+          "h": 2,
+          "n": 4,
+          "keygen_ms": 1.098,
+          "keygen_iqr": 0.07,
+          "sign_ms": 0.126,
+          "sign_iqr": 0.003,
+          "verify_ms": 0.13,
+          "verify_iqr": 0.061,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 4360,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": false,
+          "h": 3,
+          "n": 8,
+          "keygen_ms": 2.433,
+          "keygen_iqr": 1.049,
+          "sign_ms": 0.126,
+          "sign_iqr": 0.001,
+          "verify_ms": 0.13,
+          "verify_iqr": 0.001,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 4392,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": false,
+          "h": 4,
+          "n": 16,
+          "keygen_ms": 4.323,
+          "keygen_iqr": 0.02,
+          "sign_ms": 0.126,
+          "sign_iqr": 0.0,
+          "verify_ms": 0.13,
+          "verify_iqr": 0.001,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 4424,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": false,
+          "h": 5,
+          "n": 32,
+          "keygen_ms": 8.65,
+          "keygen_iqr": 0.0415,
+          "sign_ms": 0.126,
+          "sign_iqr": 0.002,
+          "verify_ms": 0.131,
+          "verify_iqr": 0.001,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 4456,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": false,
+          "h": 6,
+          "n": 64,
+          "keygen_ms": 17.296,
+          "keygen_iqr": 0.057,
+          "sign_ms": 0.126,
+          "sign_iqr": 0.001,
+          "verify_ms": 0.131,
+          "verify_iqr": 0.001,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 4488,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": false,
+          "h": 7,
+          "n": 128,
+          "keygen_ms": 34.738,
+          "keygen_iqr": 2.0135,
+          "sign_ms": 0.126,
+          "sign_iqr": 0.001,
+          "verify_ms": 0.132,
+          "verify_iqr": 0.003,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 4520,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": false,
+          "h": 8,
+          "n": 256,
+          "keygen_ms": 70.68,
+          "keygen_iqr": 5.0335,
+          "sign_ms": 0.122,
+          "sign_iqr": 0.002,
+          "verify_ms": 0.128,
+          "verify_iqr": 0.0025,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 4552,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": true,
+          "h": 1,
+          "n": 2,
+          "keygen_ms": 0.525,
+          "keygen_iqr": 0.0085,
+          "sign_ms": 0.123,
+          "sign_iqr": 0.003,
+          "verify_ms": 0.126,
+          "verify_iqr": 0.0025,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 2184,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": true,
+          "h": 2,
+          "n": 4,
+          "keygen_ms": 1.051,
+          "keygen_iqr": 0.011,
+          "sign_ms": 0.126,
+          "sign_iqr": 0.0185,
+          "verify_ms": 0.13,
+          "verify_iqr": 0.0085,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 2216,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": true,
+          "h": 3,
+          "n": 8,
+          "keygen_ms": 2.146,
+          "keygen_iqr": 0.134,
+          "sign_ms": 0.121,
+          "sign_iqr": 0.002,
+          "verify_ms": 0.127,
+          "verify_iqr": 0.002,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 2248,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": true,
+          "h": 4,
+          "n": 16,
+          "keygen_ms": 4.25,
+          "keygen_iqr": 0.0755,
+          "sign_ms": 0.124,
+          "sign_iqr": 0.004,
+          "verify_ms": 0.126,
+          "verify_iqr": 0.001,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 2280,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": true,
+          "h": 5,
+          "n": 32,
+          "keygen_ms": 8.604,
+          "keygen_iqr": 0.589,
+          "sign_ms": 0.125,
+          "sign_iqr": 0.001,
+          "verify_ms": 0.131,
+          "verify_iqr": 0.001,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 2312,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": true,
+          "h": 6,
+          "n": 64,
+          "keygen_ms": 17.552,
+          "keygen_iqr": 0.3975,
+          "sign_ms": 0.126,
+          "sign_iqr": 0.002,
+          "verify_ms": 0.132,
+          "verify_iqr": 0.002,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 2344,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": true,
+          "h": 7,
+          "n": 128,
+          "keygen_ms": 35.823,
+          "keygen_iqr": 5.072,
+          "sign_ms": 0.121,
+          "sign_iqr": 0.0025,
+          "verify_ms": 0.128,
+          "verify_iqr": 0.002,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 2376,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": true,
+          "h": 8,
+          "n": 256,
+          "keygen_ms": 68.491,
+          "keygen_iqr": 3.9255,
+          "sign_ms": 0.122,
+          "sign_iqr": 0.002,
+          "verify_ms": 0.132,
+          "verify_iqr": 0.0025,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 2408,
+          "verify_ok": 1
+        }
+      ]
+    },
+    {
+      "session": 2,
+      "order": [
+        "proto",
+        "sphincs128s",
+        "sphincs128f",
+        "mldsa65",
+        "mldsa44"
+      ],
+      "rows": [
+        {
+          "kind": "wots",
+          "compact": false,
+          "h": 1,
+          "n": 2,
+          "keygen_ms": 0.59,
+          "keygen_iqr": 0.6635,
+          "sign_ms": 0.308,
+          "sign_iqr": 0.164,
+          "verify_ms": 0.129,
+          "verify_iqr": 0.0015,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 4328,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": false,
+          "h": 2,
+          "n": 4,
+          "keygen_ms": 1.053,
+          "keygen_iqr": 0.0445,
+          "sign_ms": 0.122,
+          "sign_iqr": 0.003,
+          "verify_ms": 0.126,
+          "verify_iqr": 0.002,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 4360,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": false,
+          "h": 3,
+          "n": 8,
+          "keygen_ms": 2.164,
+          "keygen_iqr": 0.1235,
+          "sign_ms": 0.127,
+          "sign_iqr": 0.004,
+          "verify_ms": 0.127,
+          "verify_iqr": 0.0035,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 4392,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": false,
+          "h": 4,
+          "n": 16,
+          "keygen_ms": 4.23,
+          "keygen_iqr": 0.063,
+          "sign_ms": 0.125,
+          "sign_iqr": 0.004,
+          "verify_ms": 0.131,
+          "verify_iqr": 0.001,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 4424,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": false,
+          "h": 5,
+          "n": 32,
+          "keygen_ms": 8.59,
+          "keygen_iqr": 0.4215,
+          "sign_ms": 0.126,
+          "sign_iqr": 0.001,
+          "verify_ms": 0.131,
+          "verify_iqr": 0.001,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 4456,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": false,
+          "h": 6,
+          "n": 64,
+          "keygen_ms": 16.971,
+          "keygen_iqr": 0.272,
+          "sign_ms": 0.224,
+          "sign_iqr": 0.2325,
+          "verify_ms": 0.133,
+          "verify_iqr": 0.0335,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 4488,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": false,
+          "h": 7,
+          "n": 128,
+          "keygen_ms": 34.505,
+          "keygen_iqr": 1.095,
+          "sign_ms": 0.126,
+          "sign_iqr": 0.001,
+          "verify_ms": 0.132,
+          "verify_iqr": 0.001,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 4520,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": false,
+          "h": 8,
+          "n": 256,
+          "keygen_ms": 82.618,
+          "keygen_iqr": 119.49,
+          "sign_ms": 0.145,
+          "sign_iqr": 0.1235,
+          "verify_ms": 0.209,
+          "verify_iqr": 0.1755,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 4552,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": true,
+          "h": 1,
+          "n": 2,
+          "keygen_ms": 0.654,
+          "keygen_iqr": 0.325,
+          "sign_ms": 0.3,
+          "sign_iqr": 0.149,
+          "verify_ms": 0.249,
+          "verify_iqr": 0.2655,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 2184,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": true,
+          "h": 2,
+          "n": 4,
+          "keygen_ms": 2.704,
+          "keygen_iqr": 2.6285,
+          "sign_ms": 0.143,
+          "sign_iqr": 0.219,
+          "verify_ms": 0.25,
+          "verify_iqr": 0.1805,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 2216,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": true,
+          "h": 3,
+          "n": 8,
+          "keygen_ms": 3.253,
+          "keygen_iqr": 1.47,
+          "sign_ms": 0.158,
+          "sign_iqr": 0.0395,
+          "verify_ms": 0.172,
+          "verify_iqr": 0.1845,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 2248,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": true,
+          "h": 4,
+          "n": 16,
+          "keygen_ms": 5.328,
+          "keygen_iqr": 1.9905,
+          "sign_ms": 0.126,
+          "sign_iqr": 0.052,
+          "verify_ms": 0.131,
+          "verify_iqr": 0.1265,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 2280,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": true,
+          "h": 5,
+          "n": 32,
+          "keygen_ms": 15.252,
+          "keygen_iqr": 5.9725,
+          "sign_ms": 0.193,
+          "sign_iqr": 0.1275,
+          "verify_ms": 0.132,
+          "verify_iqr": 0.0235,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 2312,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": true,
+          "h": 6,
+          "n": 64,
+          "keygen_ms": 21.807,
+          "keygen_iqr": 4.078,
+          "sign_ms": 0.129,
+          "sign_iqr": 0.04,
+          "verify_ms": 0.131,
+          "verify_iqr": 0.0125,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 2344,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": true,
+          "h": 7,
+          "n": 128,
+          "keygen_ms": 45.65,
+          "keygen_iqr": 13.648,
+          "sign_ms": 0.125,
+          "sign_iqr": 0.001,
+          "verify_ms": 0.132,
+          "verify_iqr": 0.007,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 2376,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": true,
+          "h": 8,
+          "n": 256,
+          "keygen_ms": 96.051,
+          "keygen_iqr": 59.7105,
+          "sign_ms": 0.126,
+          "sign_iqr": 0.0255,
+          "verify_ms": 0.132,
+          "verify_iqr": 0.0,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 2408,
+          "verify_ok": 1
+        },
+        {
+          "scheme": "SLH-DSA-SHA2-128s (PQClean)",
+          "pk": 32,
+          "sk": 64,
+          "sig": 7856,
+          "keygen_ms": 87.413,
+          "keygen_iqr": 15.711,
+          "sign_ms": 845.28,
+          "sign_iqr": 331.0855,
+          "verify_ms": 0.613,
+          "verify_iqr": 0.304,
+          "verify_ok": 1
+        },
+        {
+          "scheme": "SLH-DSA-SHA2-128f (PQClean)",
+          "pk": 32,
+          "sk": 64,
+          "sig": 17088,
+          "keygen_ms": 7.365,
+          "keygen_iqr": 18.3185,
+          "sign_ms": 58.219,
+          "sign_iqr": 31.305,
+          "verify_ms": 2.775,
+          "verify_iqr": 1.2635,
+          "verify_ok": 1
+        },
+        {
+          "scheme": "ML-DSA-65",
+          "pk": 1952,
+          "sk": 4032,
+          "sig": 3309,
+          "keygen_ms": 0.118,
+          "keygen_iqr": 0.0865,
+          "sign_ms": 0.489,
+          "sign_iqr": 0.508,
+          "verify_ms": 0.25,
+          "verify_iqr": 0.195,
+          "verify_ok": 1
+        },
+        {
+          "scheme": "ML-DSA-44",
+          "pk": 1312,
+          "sk": 2560,
+          "sig": 2420,
+          "keygen_ms": 0.062,
+          "keygen_iqr": 0.044,
+          "sign_ms": 0.189,
+          "sign_iqr": 0.107,
+          "verify_ms": 0.065,
+          "verify_iqr": 0.0105,
+          "verify_ok": 1
+        }
+      ]
+    },
+    {
+      "session": 3,
+      "order": [
+        "mldsa65",
+        "sphincs128s",
+        "mldsa44",
+        "sphincs128f",
+        "proto"
+      ],
+      "rows": [
+        {
+          "scheme": "ML-DSA-65",
+          "pk": 1952,
+          "sk": 4032,
+          "sig": 3309,
+          "keygen_ms": 0.261,
+          "keygen_iqr": 0.1485,
+          "sign_ms": 0.305,
+          "sign_iqr": 0.374,
+          "verify_ms": 0.127,
+          "verify_iqr": 0.155,
+          "verify_ok": 1
+        },
+        {
+          "scheme": "SLH-DSA-SHA2-128s (PQClean)",
+          "pk": 32,
+          "sk": 64,
+          "sig": 7856,
+          "keygen_ms": 81.934,
+          "keygen_iqr": 6.463,
+          "sign_ms": 626.461,
+          "sign_iqr": 57.1395,
+          "verify_ms": 0.549,
+          "verify_iqr": 0.0495,
+          "verify_ok": 1
+        },
+        {
+          "scheme": "ML-DSA-44",
+          "pk": 1312,
+          "sk": 2560,
+          "sig": 2420,
+          "keygen_ms": 0.061,
+          "keygen_iqr": 0.0015,
+          "sign_ms": 0.152,
+          "sign_iqr": 0.1335,
+          "verify_ms": 0.075,
+          "verify_iqr": 0.015,
+          "verify_ok": 1
+        },
+        {
+          "scheme": "SLH-DSA-SHA2-128f (PQClean)",
+          "pk": 32,
+          "sk": 64,
+          "sig": 17088,
+          "keygen_ms": 1.128,
+          "keygen_iqr": 0.116,
+          "sign_ms": 29.702,
+          "sign_iqr": 0.741,
+          "verify_ms": 1.607,
+          "verify_iqr": 0.15,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": false,
+          "h": 1,
+          "n": 2,
+          "keygen_ms": 0.538,
+          "keygen_iqr": 0.0895,
+          "sign_ms": 0.125,
+          "sign_iqr": 0.018,
+          "verify_ms": 0.128,
+          "verify_iqr": 0.0085,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 4328,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": false,
+          "h": 2,
+          "n": 4,
+          "keygen_ms": 1.073,
+          "keygen_iqr": 0.0955,
+          "sign_ms": 0.123,
+          "sign_iqr": 0.004,
+          "verify_ms": 0.13,
+          "verify_iqr": 0.0205,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 4360,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": false,
+          "h": 3,
+          "n": 8,
+          "keygen_ms": 2.24,
+          "keygen_iqr": 0.238,
+          "sign_ms": 0.123,
+          "sign_iqr": 0.0015,
+          "verify_ms": 0.127,
+          "verify_iqr": 0.0035,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 4392,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": false,
+          "h": 4,
+          "n": 16,
+          "keygen_ms": 4.485,
+          "keygen_iqr": 0.6,
+          "sign_ms": 0.122,
+          "sign_iqr": 0.002,
+          "verify_ms": 0.127,
+          "verify_iqr": 0.003,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 4424,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": false,
+          "h": 5,
+          "n": 32,
+          "keygen_ms": 9.17,
+          "keygen_iqr": 2.0,
+          "sign_ms": 0.123,
+          "sign_iqr": 0.0035,
+          "verify_ms": 0.131,
+          "verify_iqr": 0.0235,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 4456,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": false,
+          "h": 6,
+          "n": 64,
+          "keygen_ms": 20.233,
+          "keygen_iqr": 2.89,
+          "sign_ms": 0.123,
+          "sign_iqr": 0.0035,
+          "verify_ms": 0.129,
+          "verify_iqr": 0.009,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 4488,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": false,
+          "h": 7,
+          "n": 128,
+          "keygen_ms": 44.826,
+          "keygen_iqr": 27.531,
+          "sign_ms": 0.134,
+          "sign_iqr": 0.0285,
+          "verify_ms": 0.18,
+          "verify_iqr": 0.141,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 4520,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": false,
+          "h": 8,
+          "n": 256,
+          "keygen_ms": 89.755,
+          "keygen_iqr": 33.8105,
+          "sign_ms": 0.125,
+          "sign_iqr": 0.0095,
+          "verify_ms": 0.132,
+          "verify_iqr": 0.017,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 4552,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": true,
+          "h": 1,
+          "n": 2,
+          "keygen_ms": 0.686,
+          "keygen_iqr": 0.219,
+          "sign_ms": 0.123,
+          "sign_iqr": 0.0035,
+          "verify_ms": 0.126,
+          "verify_iqr": 0.0055,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 2184,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": true,
+          "h": 2,
+          "n": 4,
+          "keygen_ms": 1.105,
+          "keygen_iqr": 0.212,
+          "sign_ms": 0.147,
+          "sign_iqr": 0.152,
+          "verify_ms": 0.13,
+          "verify_iqr": 0.043,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 2216,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": true,
+          "h": 3,
+          "n": 8,
+          "keygen_ms": 2.432,
+          "keygen_iqr": 0.6165,
+          "sign_ms": 0.124,
+          "sign_iqr": 0.003,
+          "verify_ms": 0.129,
+          "verify_iqr": 0.005,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 2248,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": true,
+          "h": 4,
+          "n": 16,
+          "keygen_ms": 4.44,
+          "keygen_iqr": 0.6535,
+          "sign_ms": 0.126,
+          "sign_iqr": 0.016,
+          "verify_ms": 0.128,
+          "verify_iqr": 0.0035,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 2280,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": true,
+          "h": 5,
+          "n": 32,
+          "keygen_ms": 9.135,
+          "keygen_iqr": 2.377,
+          "sign_ms": 0.126,
+          "sign_iqr": 0.0205,
+          "verify_ms": 0.131,
+          "verify_iqr": 0.003,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 2312,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": true,
+          "h": 6,
+          "n": 64,
+          "keygen_ms": 19.392,
+          "keygen_iqr": 2.379,
+          "sign_ms": 0.124,
+          "sign_iqr": 0.002,
+          "verify_ms": 0.128,
+          "verify_iqr": 0.004,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 2344,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": true,
+          "h": 7,
+          "n": 128,
+          "keygen_ms": 40.369,
+          "keygen_iqr": 5.991,
+          "sign_ms": 0.132,
+          "sign_iqr": 0.018,
+          "verify_ms": 0.132,
+          "verify_iqr": 0.041,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 2376,
+          "verify_ok": 1
+        },
+        {
+          "kind": "wots",
+          "compact": true,
+          "h": 8,
+          "n": 256,
+          "keygen_ms": 76.95,
+          "keygen_iqr": 2.866,
+          "sign_ms": 0.126,
+          "sign_iqr": 0.0325,
+          "verify_ms": 0.131,
+          "verify_iqr": 0.0125,
+          "sign_chain_calls": 510,
+          "verify_chain_calls": 495,
+          "sig_bytes": 2408,
+          "verify_ok": 1
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "ML-DSA-44": {
+      "keygen_ms": {
+        "session_medians": [
+          0.06,
+          0.062,
+          0.061
+        ],
+        "median": 0.061,
+        "min": 0.06,
+        "max": 0.062,
+        "spread_pct": 3.2786885245901667
+      },
+      "sign_ms": {
+        "session_medians": [
+          0.23,
+          0.189,
+          0.152
+        ],
+        "median": 0.189,
+        "min": 0.152,
+        "max": 0.23,
+        "spread_pct": 41.26984126984128
+      },
+      "verify_ms": {
+        "session_medians": [
+          0.064,
+          0.065,
+          0.075
+        ],
+        "median": 0.065,
+        "min": 0.064,
+        "max": 0.075,
+        "spread_pct": 16.923076923076916
+      },
+      "scheme": "ML-DSA-44",
+      "pk": 1312,
+      "sk": 2560,
+      "sig": 2420
+    },
+    "ML-DSA-65": {
+      "keygen_ms": {
+        "session_medians": [
+          0.116,
+          0.118,
+          0.261
+        ],
+        "median": 0.118,
+        "min": 0.116,
+        "max": 0.261,
+        "spread_pct": 122.88135593220342
+      },
+      "sign_ms": {
+        "session_medians": [
+          0.339,
+          0.489,
+          0.305
+        ],
+        "median": 0.339,
+        "min": 0.305,
+        "max": 0.489,
+        "spread_pct": 54.27728613569322
+      },
+      "verify_ms": {
+        "session_medians": [
+          0.104,
+          0.25,
+          0.127
+        ],
+        "median": 0.127,
+        "min": 0.104,
+        "max": 0.25,
+        "spread_pct": 114.96062992125987
+      },
+      "scheme": "ML-DSA-65",
+      "pk": 1952,
+      "sk": 4032,
+      "sig": 3309
+    },
+    "SLH-DSA-SHA2-128f (PQClean)": {
+      "keygen_ms": {
+        "session_medians": [
+          1.127,
+          7.365,
+          1.128
+        ],
+        "median": 1.128,
+        "min": 1.127,
+        "max": 7.365,
+        "spread_pct": 553.0141843971633
+      },
+      "sign_ms": {
+        "session_medians": [
+          25.989,
+          58.219,
+          29.702
+        ],
+        "median": 29.702,
+        "min": 25.989,
+        "max": 58.219,
+        "spread_pct": 108.51121136623799
+      },
+      "verify_ms": {
+        "session_medians": [
+          1.598,
+          2.775,
+          1.607
+        ],
+        "median": 1.607,
+        "min": 1.598,
+        "max": 2.775,
+        "spread_pct": 73.24206596141877
+      },
+      "scheme": "SLH-DSA-SHA2-128f (PQClean)",
+      "pk": 32,
+      "sk": 64,
+      "sig": 17088
+    },
+    "SLH-DSA-SHA2-128s (PQClean)": {
+      "keygen_ms": {
+        "session_medians": [
+          74.336,
+          87.413,
+          81.934
+        ],
+        "median": 81.934,
+        "min": 74.336,
+        "max": 87.413,
+        "spread_pct": 15.960407156980006
+      },
+      "sign_ms": {
+        "session_medians": [
+          577.913,
+          845.28,
+          626.461
+        ],
+        "median": 626.461,
+        "min": 577.913,
+        "max": 845.28,
+        "spread_pct": 42.678953677882575
+      },
+      "verify_ms": {
+        "session_medians": [
+          0.555,
+          0.613,
+          0.549
+        ],
+        "median": 0.555,
+        "min": 0.549,
+        "max": 0.613,
+        "spread_pct": 11.53153153153152
+      },
+      "scheme": "SLH-DSA-SHA2-128s (PQClean)",
+      "pk": 32,
+      "sk": 64,
+      "sig": 7856
+    },
+    "wots|False|1": {
+      "keygen_ms": {
+        "session_medians": [
+          0.555,
+          0.59,
+          0.538
+        ],
+        "median": 0.555,
+        "min": 0.538,
+        "max": 0.59,
+        "spread_pct": 9.369369369369357
+      },
+      "sign_ms": {
+        "session_medians": [
+          0.125,
+          0.308,
+          0.125
+        ],
+        "median": 0.125,
+        "min": 0.125,
+        "max": 0.308,
+        "spread_pct": 146.4
+      },
+      "verify_ms": {
+        "session_medians": [
+          0.129,
+          0.129,
+          0.128
+        ],
+        "median": 0.129,
+        "min": 0.128,
+        "max": 0.129,
+        "spread_pct": 0.7751937984496131
+      },
+      "kind": "wots",
+      "compact": false,
+      "h": 1,
+      "sig_bytes": 4328
+    },
+    "wots|False|2": {
+      "keygen_ms": {
+        "session_medians": [
+          1.098,
+          1.053,
+          1.073
+        ],
+        "median": 1.073,
+        "min": 1.053,
+        "max": 1.098,
+        "spread_pct": 4.193849021435243
+      },
+      "sign_ms": {
+        "session_medians": [
+          0.126,
+          0.122,
+          0.123
+        ],
+        "median": 0.123,
+        "min": 0.122,
+        "max": 0.126,
+        "spread_pct": 3.2520325203252063
+      },
+      "verify_ms": {
+        "session_medians": [
+          0.13,
+          0.126,
+          0.13
+        ],
+        "median": 0.13,
+        "min": 0.126,
+        "max": 0.13,
+        "spread_pct": 3.0769230769230793
+      },
+      "kind": "wots",
+      "compact": false,
+      "h": 2,
+      "sig_bytes": 4360
+    },
+    "wots|False|3": {
+      "keygen_ms": {
+        "session_medians": [
+          2.433,
+          2.164,
+          2.24
+        ],
+        "median": 2.24,
+        "min": 2.164,
+        "max": 2.433,
+        "spread_pct": 12.008928571428557
+      },
+      "sign_ms": {
+        "session_medians": [
+          0.126,
+          0.127,
+          0.123
+        ],
+        "median": 0.126,
+        "min": 0.123,
+        "max": 0.127,
+        "spread_pct": 3.174603174603177
+      },
+      "verify_ms": {
+        "session_medians": [
+          0.13,
+          0.127,
+          0.127
+        ],
+        "median": 0.127,
+        "min": 0.127,
+        "max": 0.13,
+        "spread_pct": 2.362204724409451
+      },
+      "kind": "wots",
+      "compact": false,
+      "h": 3,
+      "sig_bytes": 4392
+    },
+    "wots|False|4": {
+      "keygen_ms": {
+        "session_medians": [
+          4.323,
+          4.23,
+          4.485
+        ],
+        "median": 4.323,
+        "min": 4.23,
+        "max": 4.485,
+        "spread_pct": 5.898681471200552
+      },
+      "sign_ms": {
+        "session_medians": [
+          0.126,
+          0.125,
+          0.122
+        ],
+        "median": 0.125,
+        "min": 0.122,
+        "max": 0.126,
+        "spread_pct": 3.200000000000003
+      },
+      "verify_ms": {
+        "session_medians": [
+          0.13,
+          0.131,
+          0.127
+        ],
+        "median": 0.13,
+        "min": 0.127,
+        "max": 0.131,
+        "spread_pct": 3.0769230769230793
+      },
+      "kind": "wots",
+      "compact": false,
+      "h": 4,
+      "sig_bytes": 4424
+    },
+    "wots|False|5": {
+      "keygen_ms": {
+        "session_medians": [
+          8.65,
+          8.59,
+          9.17
+        ],
+        "median": 8.65,
+        "min": 8.59,
+        "max": 9.17,
+        "spread_pct": 6.705202312138729
+      },
+      "sign_ms": {
+        "session_medians": [
+          0.126,
+          0.126,
+          0.123
+        ],
+        "median": 0.126,
+        "min": 0.123,
+        "max": 0.126,
+        "spread_pct": 2.3809523809523827
+      },
+      "verify_ms": {
+        "session_medians": [
+          0.131,
+          0.131,
+          0.131
+        ],
+        "median": 0.131,
+        "min": 0.131,
+        "max": 0.131,
+        "spread_pct": 0.0
+      },
+      "kind": "wots",
+      "compact": false,
+      "h": 5,
+      "sig_bytes": 4456
+    },
+    "wots|False|6": {
+      "keygen_ms": {
+        "session_medians": [
+          17.296,
+          16.971,
+          20.233
+        ],
+        "median": 17.296,
+        "min": 16.971,
+        "max": 20.233,
+        "spread_pct": 18.85985198889917
+      },
+      "sign_ms": {
+        "session_medians": [
+          0.126,
+          0.224,
+          0.123
+        ],
+        "median": 0.126,
+        "min": 0.123,
+        "max": 0.224,
+        "spread_pct": 80.15873015873017
+      },
+      "verify_ms": {
+        "session_medians": [
+          0.131,
+          0.133,
+          0.129
+        ],
+        "median": 0.131,
+        "min": 0.129,
+        "max": 0.133,
+        "spread_pct": 3.0534351145038197
+      },
+      "kind": "wots",
+      "compact": false,
+      "h": 6,
+      "sig_bytes": 4488
+    },
+    "wots|False|7": {
+      "keygen_ms": {
+        "session_medians": [
+          34.738,
+          34.505,
+          44.826
+        ],
+        "median": 34.738,
+        "min": 34.505,
+        "max": 44.826,
+        "spread_pct": 29.710979330991993
+      },
+      "sign_ms": {
+        "session_medians": [
+          0.126,
+          0.126,
+          0.134
+        ],
+        "median": 0.126,
+        "min": 0.126,
+        "max": 0.134,
+        "spread_pct": 6.349206349206354
+      },
+      "verify_ms": {
+        "session_medians": [
+          0.132,
+          0.132,
+          0.18
+        ],
+        "median": 0.132,
+        "min": 0.132,
+        "max": 0.18,
+        "spread_pct": 36.36363636363635
+      },
+      "kind": "wots",
+      "compact": false,
+      "h": 7,
+      "sig_bytes": 4520
+    },
+    "wots|False|8": {
+      "keygen_ms": {
+        "session_medians": [
+          70.68,
+          82.618,
+          89.755
+        ],
+        "median": 82.618,
+        "min": 70.68,
+        "max": 89.755,
+        "spread_pct": 23.08818901450046
+      },
+      "sign_ms": {
+        "session_medians": [
+          0.122,
+          0.145,
+          0.125
+        ],
+        "median": 0.125,
+        "min": 0.122,
+        "max": 0.145,
+        "spread_pct": 18.399999999999995
+      },
+      "verify_ms": {
+        "session_medians": [
+          0.128,
+          0.209,
+          0.132
+        ],
+        "median": 0.132,
+        "min": 0.128,
+        "max": 0.209,
+        "spread_pct": 61.36363636363635
+      },
+      "kind": "wots",
+      "compact": false,
+      "h": 8,
+      "sig_bytes": 4552
+    },
+    "wots|True|1": {
+      "keygen_ms": {
+        "session_medians": [
+          0.525,
+          0.654,
+          0.686
+        ],
+        "median": 0.654,
+        "min": 0.525,
+        "max": 0.686,
+        "spread_pct": 24.617737003058107
+      },
+      "sign_ms": {
+        "session_medians": [
+          0.123,
+          0.3,
+          0.123
+        ],
+        "median": 0.123,
+        "min": 0.123,
+        "max": 0.3,
+        "spread_pct": 143.90243902439025
+      },
+      "verify_ms": {
+        "session_medians": [
+          0.126,
+          0.249,
+          0.126
+        ],
+        "median": 0.126,
+        "min": 0.126,
+        "max": 0.249,
+        "spread_pct": 97.61904761904762
+      },
+      "kind": "wots",
+      "compact": true,
+      "h": 1,
+      "sig_bytes": 2184
+    },
+    "wots|True|2": {
+      "keygen_ms": {
+        "session_medians": [
+          1.051,
+          2.704,
+          1.105
+        ],
+        "median": 1.105,
+        "min": 1.051,
+        "max": 2.704,
+        "spread_pct": 149.5927601809955
+      },
+      "sign_ms": {
+        "session_medians": [
+          0.126,
+          0.143,
+          0.147
+        ],
+        "median": 0.143,
+        "min": 0.126,
+        "max": 0.147,
+        "spread_pct": 14.68531468531468
+      },
+      "verify_ms": {
+        "session_medians": [
+          0.13,
+          0.25,
+          0.13
+        ],
+        "median": 0.13,
+        "min": 0.13,
+        "max": 0.25,
+        "spread_pct": 92.3076923076923
+      },
+      "kind": "wots",
+      "compact": true,
+      "h": 2,
+      "sig_bytes": 2216
+    },
+    "wots|True|3": {
+      "keygen_ms": {
+        "session_medians": [
+          2.146,
+          3.253,
+          2.432
+        ],
+        "median": 2.432,
+        "min": 2.146,
+        "max": 3.253,
+        "spread_pct": 45.51809210526317
+      },
+      "sign_ms": {
+        "session_medians": [
+          0.121,
+          0.158,
+          0.124
+        ],
+        "median": 0.124,
+        "min": 0.121,
+        "max": 0.158,
+        "spread_pct": 29.838709677419363
+      },
+      "verify_ms": {
+        "session_medians": [
+          0.127,
+          0.172,
+          0.129
+        ],
+        "median": 0.129,
+        "min": 0.127,
+        "max": 0.172,
+        "spread_pct": 34.88372093023254
+      },
+      "kind": "wots",
+      "compact": true,
+      "h": 3,
+      "sig_bytes": 2248
+    },
+    "wots|True|4": {
+      "keygen_ms": {
+        "session_medians": [
+          4.25,
+          5.328,
+          4.44
+        ],
+        "median": 4.44,
+        "min": 4.25,
+        "max": 5.328,
+        "spread_pct": 24.279279279279283
+      },
+      "sign_ms": {
+        "session_medians": [
+          0.124,
+          0.126,
+          0.126
+        ],
+        "median": 0.126,
+        "min": 0.124,
+        "max": 0.126,
+        "spread_pct": 1.5873015873015885
+      },
+      "verify_ms": {
+        "session_medians": [
+          0.126,
+          0.131,
+          0.128
+        ],
+        "median": 0.128,
+        "min": 0.126,
+        "max": 0.131,
+        "spread_pct": 3.9062500000000036
+      },
+      "kind": "wots",
+      "compact": true,
+      "h": 4,
+      "sig_bytes": 2280
+    },
+    "wots|True|5": {
+      "keygen_ms": {
+        "session_medians": [
+          8.604,
+          15.252,
+          9.135
+        ],
+        "median": 9.135,
+        "min": 8.604,
+        "max": 15.252,
+        "spread_pct": 72.77504105090313
+      },
+      "sign_ms": {
+        "session_medians": [
+          0.125,
+          0.193,
+          0.126
+        ],
+        "median": 0.126,
+        "min": 0.125,
+        "max": 0.193,
+        "spread_pct": 53.968253968253975
+      },
+      "verify_ms": {
+        "session_medians": [
+          0.131,
+          0.132,
+          0.131
+        ],
+        "median": 0.131,
+        "min": 0.131,
+        "max": 0.132,
+        "spread_pct": 0.7633587786259549
+      },
+      "kind": "wots",
+      "compact": true,
+      "h": 5,
+      "sig_bytes": 2312
+    },
+    "wots|True|6": {
+      "keygen_ms": {
+        "session_medians": [
+          17.552,
+          21.807,
+          19.392
+        ],
+        "median": 19.392,
+        "min": 17.552,
+        "max": 21.807,
+        "spread_pct": 21.942037953795378
+      },
+      "sign_ms": {
+        "session_medians": [
+          0.126,
+          0.129,
+          0.124
+        ],
+        "median": 0.126,
+        "min": 0.124,
+        "max": 0.129,
+        "spread_pct": 3.9682539682539715
+      },
+      "verify_ms": {
+        "session_medians": [
+          0.132,
+          0.131,
+          0.128
+        ],
+        "median": 0.131,
+        "min": 0.128,
+        "max": 0.132,
+        "spread_pct": 3.0534351145038197
+      },
+      "kind": "wots",
+      "compact": true,
+      "h": 6,
+      "sig_bytes": 2344
+    },
+    "wots|True|7": {
+      "keygen_ms": {
+        "session_medians": [
+          35.823,
+          45.65,
+          40.369
+        ],
+        "median": 40.369,
+        "min": 35.823,
+        "max": 45.65,
+        "spread_pct": 24.34293641160296
+      },
+      "sign_ms": {
+        "session_medians": [
+          0.121,
+          0.125,
+          0.132
+        ],
+        "median": 0.125,
+        "min": 0.121,
+        "max": 0.132,
+        "spread_pct": 8.800000000000008
+      },
+      "verify_ms": {
+        "session_medians": [
+          0.128,
+          0.132,
+          0.132
+        ],
+        "median": 0.132,
+        "min": 0.128,
+        "max": 0.132,
+        "spread_pct": 3.030303030303033
+      },
+      "kind": "wots",
+      "compact": true,
+      "h": 7,
+      "sig_bytes": 2376
+    },
+    "wots|True|8": {
+      "keygen_ms": {
+        "session_medians": [
+          68.491,
+          96.051,
+          76.95
+        ],
+        "median": 76.95,
+        "min": 68.491,
+        "max": 96.051,
+        "spread_pct": 35.815464587394416
+      },
+      "sign_ms": {
+        "session_medians": [
+          0.122,
+          0.126,
+          0.126
+        ],
+        "median": 0.126,
+        "min": 0.122,
+        "max": 0.126,
+        "spread_pct": 3.174603174603177
+      },
+      "verify_ms": {
+        "session_medians": [
+          0.132,
+          0.132,
+          0.131
+        ],
+        "median": 0.132,
+        "min": 0.131,
+        "max": 0.132,
+        "spread_pct": 0.7575757575757582
+      },
+      "kind": "wots",
+      "compact": true,
+      "h": 8,
+      "sig_bytes": 2408
+    }
+  }
+}

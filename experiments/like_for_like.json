@@ -1,0 +1,190 @@
+{
+  "environment": {
+    "python": "3.11.9",
+    "cpu": "Apple M1 (arm64)",
+    "compiler": "Apple clang 17.0.0 -O3 -std=c99",
+    "sessions": 3,
+    "reps_per_session": 31,
+    "w": 16,
+    "h": 8,
+    "message_bytes": 64,
+    "timing": "perf_counter_ns (Python) / clock_gettime(CLOCK_MONOTONIC) (C)",
+    "note": "Same construction, same message, same operation boundaries. Python verify includes byte-slice parsing; C uses pointer parsing. parse_ms is reported for Python only."
+  },
+  "checks": {
+    "merkle_root_python_equals_c": true,
+    "chain_calls_per_signature": 1005,
+    "expected_chain_calls": 1005,
+    "sign_chain_calls": 510,
+    "verify_chain_calls": 495
+  },
+  "sessions": [
+    {
+      "session": 1,
+      "order": [
+        "python",
+        "c"
+      ],
+      "python": {
+        "keygen_ms": 123.173125,
+        "sign_ms": 0.22375,
+        "verify_explicit_ms": 0.248459,
+        "verify_compact_ms": 0.236458,
+        "parse_ms": 0.007458,
+        "keygen_iqr": 7.497291999999987,
+        "sign_iqr": 0.011520500000000017,
+        "verify_explicit_iqr": 0.02577099999999999,
+        "verify_compact_iqr": 0.011750499999999997,
+        "sig_explicit_bytes": 4552,
+        "sig_compact_bytes": 2408,
+        "n": 31
+      },
+      "c": {
+        "keygen_ms": 70.144,
+        "sign_ms": 0.123,
+        "verify_explicit_ms": 0.13,
+        "verify_compact_ms": 0.145,
+        "parse_ms": 0.0,
+        "keygen_iqr": 1.1755,
+        "sign_iqr": 0.0045,
+        "verify_explicit_iqr": 0.006,
+        "verify_compact_iqr": 0.0405,
+        "sign_chain_calls": 510,
+        "verify_chain_calls": 495,
+        "sig_explicit_bytes": 4552,
+        "sig_compact_bytes": 2408,
+        "n": 31
+      }
+    },
+    {
+      "session": 2,
+      "order": [
+        "c",
+        "python"
+      ],
+      "c": {
+        "keygen_ms": 71.04,
+        "sign_ms": 0.122,
+        "verify_explicit_ms": 0.131,
+        "verify_compact_ms": 0.132,
+        "parse_ms": 0.0,
+        "keygen_iqr": 5.7035,
+        "sign_iqr": 0.0025,
+        "verify_explicit_iqr": 0.007,
+        "verify_compact_iqr": 0.0115,
+        "sign_chain_calls": 510,
+        "verify_chain_calls": 495,
+        "sig_explicit_bytes": 4552,
+        "sig_compact_bytes": 2408,
+        "n": 31
+      },
+      "python": {
+        "keygen_ms": 120.167667,
+        "sign_ms": 0.220833,
+        "verify_explicit_ms": 0.253417,
+        "verify_compact_ms": 0.240541,
+        "parse_ms": 0.007625,
+        "keygen_iqr": 2.433374999999984,
+        "sign_iqr": 0.02795849999999997,
+        "verify_explicit_iqr": 0.02629150000000005,
+        "verify_compact_iqr": 0.030478499999999964,
+        "sig_explicit_bytes": 4552,
+        "sig_compact_bytes": 2408,
+        "n": 31
+      }
+    },
+    {
+      "session": 3,
+      "order": [
+        "python",
+        "c"
+      ],
+      "python": {
+        "keygen_ms": 122.584209,
+        "sign_ms": 0.242542,
+        "verify_explicit_ms": 0.253625,
+        "verify_compact_ms": 0.241125,
+        "parse_ms": 0.007334,
+        "keygen_iqr": 7.115875000000017,
+        "sign_iqr": 0.030957500000000027,
+        "verify_explicit_iqr": 0.0389795,
+        "verify_compact_iqr": 0.013791500000000012,
+        "sig_explicit_bytes": 4552,
+        "sig_compact_bytes": 2408,
+        "n": 31
+      },
+      "c": {
+        "keygen_ms": 71.849,
+        "sign_ms": 0.126,
+        "verify_explicit_ms": 0.131,
+        "verify_compact_ms": 0.133,
+        "parse_ms": 0.0,
+        "keygen_iqr": 3.663,
+        "sign_iqr": 0.0015,
+        "verify_explicit_iqr": 0.005,
+        "verify_compact_iqr": 0.01,
+        "sign_chain_calls": 510,
+        "verify_chain_calls": 495,
+        "sig_explicit_bytes": 4552,
+        "sig_compact_bytes": 2408,
+        "n": 31
+      }
+    }
+  ],
+  "summary": {
+    "python": {
+      "keygen_ms": {
+        "median": 122.584209,
+        "min": 120.167667,
+        "max": 123.173125
+      },
+      "sign_ms": {
+        "median": 0.22375,
+        "min": 0.220833,
+        "max": 0.242542
+      },
+      "verify_explicit_ms": {
+        "median": 0.253417,
+        "min": 0.248459,
+        "max": 0.253625
+      },
+      "verify_compact_ms": {
+        "median": 0.240541,
+        "min": 0.236458,
+        "max": 0.241125
+      }
+    },
+    "c": {
+      "keygen_ms": {
+        "median": 71.04,
+        "min": 70.144,
+        "max": 71.849
+      },
+      "sign_ms": {
+        "median": 0.123,
+        "min": 0.122,
+        "max": 0.126
+      },
+      "verify_explicit_ms": {
+        "median": 0.131,
+        "min": 0.13,
+        "max": 0.131
+      },
+      "verify_compact_ms": {
+        "median": 0.133,
+        "min": 0.132,
+        "max": 0.145
+      }
+    }
+  },
+  "ratios_python_over_c": {
+    "keygen_ms": 1.726,
+    "sign_ms": 1.819,
+    "verify_explicit_ms": 1.934,
+    "verify_compact_ms": 1.809
+  },
+  "size": {
+    "explicit_bytes": 4552,
+    "compact_bytes": 2408
+  }
+}

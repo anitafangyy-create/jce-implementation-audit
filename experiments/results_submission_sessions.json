@@ -1,0 +1,274 @@
+{
+  "protocol": {
+    "sessions": 3,
+    "cooldown_s": 10,
+    "interpreter": "/Users/fangyuanyuan/.workbuddy/binaries/python/versions/3.14.3/bin/python3",
+    "selection_rule": "retain the session whose overall explicit median is the median of the session medians; ties -> lower number",
+    "workload": "seed 20260915, 6 configurations, 3 trees x 15 leaves, fresh 32-byte message per event"
+  },
+  "sessions": [
+    {
+      "session": "s1",
+      "file": "experiments/_sessions/session1.json",
+      "sha256": "9032ff8e97e5f04ed3c6a520e927bf7b3176f7aae5c0cb2af1ee56a03e78e164",
+      "environment": {
+        "python": "3.14.3",
+        "python_full": "3.14.3 (main, Feb  4 2026, 01:51:49) [Clang 21.1.4 ]",
+        "implementation": "CPython",
+        "platform": "macOS-15.7.7-arm64-arm-64bit-Mach-O",
+        "machine": "arm64",
+        "cpu_brand": "Apple M1",
+        "cpu_count_logical": 8,
+        "openssl": "OpenSSL 3.5.5 27 Jan 2026",
+        "perf_counter_ns": "used",
+        "clock": {
+          "implementation": "mach_absolute_time()",
+          "resolution_s": 4.166666666666666e-08,
+          "monotonic": true
+        },
+        "loadavg_1_5_15": [
+          9.44,
+          10.325,
+          11.575
+        ],
+        "session": "s1",
+        "started_utc": "2026-10-19T08:15:20+00:00"
+      },
+      "environment_sha256": "56e0a05bd52db42aace831a062f37d4413895a53f56f316c2db6dcac52cb5859",
+      "total_signing_events": 270,
+      "total_counted_checks": 5130,
+      "overall_explicit_median_ms": 0.24237550000000002,
+      "per_config": {
+        "w=4,h=4": {
+          "explicit_median_ms": 0.155667,
+          "compact_median_ms": 0.141625
+        },
+        "w=4,h=8": {
+          "explicit_median_ms": 0.152875,
+          "compact_median_ms": 0.138875
+        },
+        "w=16,h=4": {
+          "explicit_median_ms": 0.238959,
+          "compact_median_ms": 0.2295
+        },
+        "w=16,h=8": {
+          "explicit_median_ms": 0.245792,
+          "compact_median_ms": 0.232541
+        },
+        "w=256,h=4": {
+          "explicit_median_ms": 1.809458,
+          "compact_median_ms": 1.810541
+        },
+        "w=256,h=8": {
+          "explicit_median_ms": 1.969042,
+          "compact_median_ms": 1.97125
+        }
+      }
+    },
+    {
+      "session": "s2",
+      "file": "experiments/_sessions/session2.json",
+      "sha256": "cc83406024e4ecc9a38b37927c1013b53db75ade05b6677540657af83d889263",
+      "environment": {
+        "python": "3.14.3",
+        "python_full": "3.14.3 (main, Feb  4 2026, 01:51:49) [Clang 21.1.4 ]",
+        "implementation": "CPython",
+        "platform": "macOS-15.7.7-arm64-arm-64bit-Mach-O",
+        "machine": "arm64",
+        "cpu_brand": "Apple M1",
+        "cpu_count_logical": 8,
+        "openssl": "OpenSSL 3.5.5 27 Jan 2026",
+        "perf_counter_ns": "used",
+        "clock": {
+          "implementation": "mach_absolute_time()",
+          "resolution_s": 4.166666666666666e-08,
+          "monotonic": true
+        },
+        "loadavg_1_5_15": [
+          8.461,
+          10.063,
+          11.459
+        ],
+        "session": "s2",
+        "started_utc": "2026-10-19T08:15:37+00:00"
+      },
+      "environment_sha256": "44243bc40fe5ce3d25cc357c138a879e91ed9ea6af6d23676c934164e1d0ba0e",
+      "total_signing_events": 270,
+      "total_counted_checks": 5130,
+      "overall_explicit_median_ms": 0.2532495,
+      "per_config": {
+        "w=4,h=4": {
+          "explicit_median_ms": 0.157834,
+          "compact_median_ms": 0.141333
+        },
+        "w=4,h=8": {
+          "explicit_median_ms": 0.156541,
+          "compact_median_ms": 0.1405
+        },
+        "w=16,h=4": {
+          "explicit_median_ms": 0.257083,
+          "compact_median_ms": 0.239375
+        },
+        "w=16,h=8": {
+          "explicit_median_ms": 0.249416,
+          "compact_median_ms": 0.242375
+        },
+        "w=256,h=4": {
+          "explicit_median_ms": 1.940542,
+          "compact_median_ms": 1.968292
+        },
+        "w=256,h=8": {
+          "explicit_median_ms": 1.921625,
+          "compact_median_ms": 1.937958
+        }
+      }
+    },
+    {
+      "session": "s3",
+      "file": "experiments/_sessions/session3.json",
+      "sha256": "abdca9e95a3f09320a32ab19784066049be014f711db7b106182412c160440ca",
+      "environment": {
+        "python": "3.14.3",
+        "python_full": "3.14.3 (main, Feb  4 2026, 01:51:49) [Clang 21.1.4 ]",
+        "implementation": "CPython",
+        "platform": "macOS-15.7.7-arm64-arm-64bit-Mach-O",
+        "machine": "arm64",
+        "cpu_brand": "Apple M1",
+        "cpu_count_logical": 8,
+        "openssl": "OpenSSL 3.5.5 27 Jan 2026",
+        "perf_counter_ns": "used",
+        "clock": {
+          "implementation": "mach_absolute_time()",
+          "resolution_s": 4.166666666666666e-08,
+          "monotonic": true
+        },
+        "loadavg_1_5_15": [
+          7.723,
+          9.785,
+          11.326
+        ],
+        "session": "s3",
+        "started_utc": "2026-10-19T08:15:55+00:00"
+      },
+      "environment_sha256": "ca212b81eff7aa7272611e8151031532ead2da46b1a5e43cdb8b151f611f53d7",
+      "total_signing_events": 270,
+      "total_counted_checks": 5130,
+      "overall_explicit_median_ms": 0.278146,
+      "per_config": {
+        "w=4,h=4": {
+          "explicit_median_ms": 0.180083,
+          "compact_median_ms": 0.154792
+        },
+        "w=4,h=8": {
+          "explicit_median_ms": 0.171125,
+          "compact_median_ms": 0.150083
+        },
+        "w=16,h=4": {
+          "explicit_median_ms": 0.28125,
+          "compact_median_ms": 0.261625
+        },
+        "w=16,h=8": {
+          "explicit_median_ms": 0.275042,
+          "compact_median_ms": 0.25775
+        },
+        "w=256,h=4": {
+          "explicit_median_ms": 2.120125,
+          "compact_median_ms": 1.989834
+        },
+        "w=256,h=8": {
+          "explicit_median_ms": 2.020417,
+          "compact_median_ms": 2.038792
+        }
+      }
+    }
+  ],
+  "retained_session": "s2",
+  "retained_file": "experiments/results_submission.json",
+  "cross_session_per_config": {
+    "w=4,h=4": {
+      "explicit_median_ms": {
+        "median": 0.157834,
+        "min": 0.155667,
+        "max": 0.180083,
+        "spread_pct": 15.5
+      },
+      "compact_median_ms": {
+        "median": 0.141625,
+        "min": 0.141333,
+        "max": 0.154792,
+        "spread_pct": 9.5
+      }
+    },
+    "w=4,h=8": {
+      "explicit_median_ms": {
+        "median": 0.156541,
+        "min": 0.152875,
+        "max": 0.171125,
+        "spread_pct": 11.7
+      },
+      "compact_median_ms": {
+        "median": 0.1405,
+        "min": 0.138875,
+        "max": 0.150083,
+        "spread_pct": 8.0
+      }
+    },
+    "w=16,h=4": {
+      "explicit_median_ms": {
+        "median": 0.257083,
+        "min": 0.238959,
+        "max": 0.28125,
+        "spread_pct": 16.5
+      },
+      "compact_median_ms": {
+        "median": 0.239375,
+        "min": 0.2295,
+        "max": 0.261625,
+        "spread_pct": 13.4
+      }
+    },
+    "w=16,h=8": {
+      "explicit_median_ms": {
+        "median": 0.249416,
+        "min": 0.245792,
+        "max": 0.275042,
+        "spread_pct": 11.7
+      },
+      "compact_median_ms": {
+        "median": 0.242375,
+        "min": 0.232541,
+        "max": 0.25775,
+        "spread_pct": 10.4
+      }
+    },
+    "w=256,h=4": {
+      "explicit_median_ms": {
+        "median": 1.940542,
+        "min": 1.809458,
+        "max": 2.120125,
+        "spread_pct": 16.0
+      },
+      "compact_median_ms": {
+        "median": 1.968292,
+        "min": 1.810541,
+        "max": 1.989834,
+        "spread_pct": 9.1
+      }
+    },
+    "w=256,h=8": {
+      "explicit_median_ms": {
+        "median": 1.969042,
+        "min": 1.921625,
+        "max": 2.020417,
+        "spread_pct": 5.0
+      },
+      "compact_median_ms": {
+        "median": 1.97125,
+        "min": 1.937958,
+        "max": 2.038792,
+        "spread_pct": 5.1
+      }
+    }
+  },
+  "note": "Every session uses the same deterministic workload, so message bytes, (tree, index), and serialized sizes are identical across sessions; only the timings differ."
+}

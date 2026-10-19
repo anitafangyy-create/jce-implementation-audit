@@ -18,7 +18,7 @@ def render(from_markdown=False):
         links = re.findall(r'href="#([^"]+)"', current)
         assert len(ids) == len(set(ids)), "Duplicate document identifiers"
         assert not set(links) - set(ids), "Unresolved internal links"
-        assert "<h1>" in current and current.count("<table>") == 10
+        assert "<h1>" in current and current.count("<table>") == 20
         print("Validated current HTML; preserved direct edits. Use --from-markdown only to explicitly rebuild from Markdown.")
         return
     md = (OUT / 'paper' / 'paper_jce.md').read_text(encoding='utf-8')
@@ -87,7 +87,9 @@ code{font:12px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;background:#f0f4f
     if target.exists():
         existing = target.read_text(encoding='utf-8')
         new_article = re.search(r'<article>(.*?)</article>', result, re.S).group(0)
+        new_nav = re.search(r'<nav[^>]*>.*?</nav>', result, re.S).group(0)
         result = re.sub(r'<article>.*?</article>', lambda _: new_article, existing, count=1, flags=re.S)
+        result = re.sub(r'<nav[^>]*>.*?</nav>', lambda _: new_nav, result, count=1, flags=re.S)
         result = re.sub(r'<title>.*?</title>', lambda _: '<title>'+title+'</title>', result, count=1)
     target.write_text(result, encoding='utf-8')
     print(f'Rendered {len(toc)} sections; {len(result.encode()):,} bytes, fully offline.')

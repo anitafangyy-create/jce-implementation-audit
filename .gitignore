@@ -34,3 +34,9 @@ src/wots_bench
 # Legacy non-JCE paper versions (kept on disk, not part of the artifact)
 paper/paper.html
 paper/paper.md
+
+# Native benchmark build output
+bench/native/_build/
+
+# Starter package synthetic output (not project data; kept only as reference material)
+merkle_wots_experiment_starter/results/

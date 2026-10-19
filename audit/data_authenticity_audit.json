@@ -1,0 +1,76 @@
+{
+ "date": "2026-10-19",
+ "checks": [
+  {
+   "name": "A. deterministic regen",
+   "ok": true,
+   "detail": "5 scripts rerun, JSON hashes all match MANIFEST"
+  },
+  {
+   "name": "B1. unique 64-hex messages",
+   "ok": true,
+   "detail": "270/270 messages unique and 64-hex"
+  },
+  {
+   "name": "B2. timing diversity (not constants)",
+   "ok": true,
+   "detail": "distinct explicit=269/270 compact=267/270"
+  },
+  {
+   "name": "B3. no exact-zero timings",
+   "ok": true,
+   "detail": "min explicit=0.1421 compact=0.1273 ms"
+  },
+  {
+   "name": "B4. realistic outliers (>10x median)",
+   "ok": true,
+   "detail": "explicit=12 compact=16 (real measurement noise)"
+  },
+  {
+   "name": "B5. byte accounting = formula + 8B header (all 6 configs)",
+   "ok": true,
+   "detail": "w=4,h=4 OK/8648B; w=4,h=8 OK/8776B; w=16,h=4 OK/4424B; w=16,h=8 OK/4552B; w=256,h=4 OK/2312B; w=256,h=8 OK/2440B"
+  },
+  {
+   "name": "B6. (tree,index) layout = 3 trees x 29 sampled leaves",
+   "ok": true,
+   "detail": "trees=[0, 1, 2] per-tree indices=[29, 29, 29]"
+  },
+  {
+   "name": "C1. recorded artifact hashes == current files",
+   "ok": true,
+   "detail": "all 4 recorded hashes match the working-tree files (reproducible as-is)"
+  },
+  {
+   "name": "C2. git versioning status documented",
+   "ok": true,
+   "detail": "experiment_jce.py committed; experiment_submission.py + src/wots.py + src/hbs_signature.py are uncommitted working-tree versions (git HEAD keeps the earlier revision)"
+  },
+  {
+   "name": "C3. legacy sample archived separately",
+   "ok": true,
+   "detail": "old sample kept as its own file; paper forbids mixing old/new timings"
+  },
+  {
+   "name": "C4. three-session protocol record",
+   "ok": true,
+   "detail": "3 sessions, retained session s2 chosen by pre-fixed median rule"
+  },
+  {
+   "name": "D0. inline repaired checksum (shift+mask)",
+   "ok": true,
+   "detail": "270 events use the repaired digit extraction"
+  },
+  {
+   "name": "D. production rerun reproduces structure/bytes/correctness",
+   "ok": true,
+   "detail": "all 6 configs: 45 rows, bytes == authoritative, all checks pass (5.2s total)"
+  },
+  {
+   "name": "E. vendored BIP 360 vectors match upstream",
+   "ok": true,
+   "detail": "9 vectors, version 1, merkleRoot/bip350Address spot-checks MATCH (verified 19 Oct 2026)"
+  }
+ ],
+ "all_ok": true
+}

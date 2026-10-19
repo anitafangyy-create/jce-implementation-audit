@@ -1,9 +1,9 @@
 {
-  "script_pubkey_hex": "52201ea31aa694cf56f3d580ec4d526fff5932ad81b127e70ce39cbbaa4aa6c4a6e3",
-  "address": "bc1z9f9238839b499095ec872b5949f05dc02d7bae",
+  "script_pubkey_hex": "522053752bb22fbfaeee89106259f3d5bd52100aa83a0420cae659dd520b2c577c0c",
+  "address": "bc1zbda66c279851ffe00d95ef14f0307e72656c74",
   "root_recomputed": true,
   "wots_signature_valid": true,
-  "secp256k1_leaf_witness_bytes": 133,
-  "wots_leaf_witness_bytes": 4325,
+  "secp256k1_leaf_witness_bytes": 135,
+  "wots_leaf_witness_bytes": 4461,
   "p2tr_keypath_witness_bytes": 66
 }

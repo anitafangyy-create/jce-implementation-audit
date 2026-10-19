@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this artifact, please cite it as below."
+title: "HBS-PQ Research Artifact: Engineering Trade-offs in Merkle-Aggregated Winternitz Signatures"
+abstract: >-
+  From-scratch implementation and empirical audit of Lamport OTS, WOTS+/Winternitz,
+  and Merkle-tree signatures, with known-answer tests, payload accounting, a repaired
+  paired verification experiment, and a signer-state model.
+version: 1.0
+date-released: 2026-10-18
+license: MIT
+authors:
+  # TODO(作者填写): 投稿前补全姓名与单位；未擅自虚构（见 reports/SUBMISSION_REVIEW.md）
+  - family-names: "[Family name]"
+    given-names: "[Given name]"
+    affiliation: "[Institution]"
+keywords:
+  - hash-based signatures
+  - Winternitz
+  - WOTS+
+  - Merkle tree
+  - post-quantum
+  - reproducibility
+repository-code: "[GitHub URL after upload]"
+# doi: "[Zenodo concept DOI after upload]"   # TODO: 上传 Zenodo 后回填

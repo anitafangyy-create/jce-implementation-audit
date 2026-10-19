@@ -12,11 +12,14 @@
 |---|---|
 | `src/` | 核心密码学实现：`hbs_signature.py`（Lamport OTS + Merkle 树）、`wots.py`（WOTS+）、`wots_bench.c`（C 基准） |
 | `experiments/` | 实验脚本（`experiment_jce.py`、`experiment_submission.py`、`make_kat.py`、`bip360_demo.py`、`run_sphincs_benchmark.py`）与实测数据（`results*.json`、`kat_wots.json`、`bip360_demo.json`、`kat_128s.rsp`） |
-| `charts/` | 图表与渲染脚本：`make_charts_jce.py`、`make_submission_figure.py`、`render_jce.py` |
-| `figures/` | 图表产物（`fig_jce_*`、`fig_submission.*`、`figure3.*`） |
+| `bench/native/` | 同条件原生 C 基准：PQClean ML-DSA/SLH-DSA + C 版 repaired prototype（`build.sh`、`run_sessions.py`、`bench_proto.c`、`bench_std.c`） |
+| `state_demo/` | durable-state 分配器（哈希链日志、原子 head、高水位、`flock`）与 6 项故障注入测试（`test_state.py`） |
+| `charts/` | 图表与渲染脚本：`make_charts_jce.py`、`make_submission_figure.py`、`make_native_figure.py`、`render_jce.py` |
+| `figures/` | 图表产物（`fig_jce_*`、`fig_submission.*`、`figure3.*`、`fig_native_benchmark.png`） |
+| `tests/` | 编码边界（E1–E8）、链调用计数、序列化长度恒等式的独立测试 |
 | `paper/` | 论文文稿：`paper_jce.md/html`（投稿主稿）及预览图 |
-| `audit/` | 原型审计（`audit_jce.py/json`）与抽象状态模型（`state_model_jce.py/json`） |
-| `reports/` | 中文研究报告（`RESEARCH_REPORT.md`）与投稿评估（`SUBMISSION_REVIEW.md`） |
+| `audit/` | 原型审计（`audit_jce.py/json`）、抽象状态模型（`state_model_jce.py/json`）与 SQLite 状态测试（`state_persistence_tests.py/json`） |
+| `reports/` | 研究报告（`RESEARCH_REPORT.md`）、投稿评估与代码审计（`CODE_AUDIT.md`） |
 | `third_party/` | 第三方参考源码（`sphincsplus-ref/`，SPHINCS+ 官方实现，供 `src/sphincs_vectors.py` 校验 KAT 用） |
 | `archive/` | 历史备份（`备份1/`、`revision_backup/`），不参与运行，仅供追溯 |
 

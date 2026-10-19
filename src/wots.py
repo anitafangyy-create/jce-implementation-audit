@@ -20,8 +20,11 @@ Reference:
       Algorithm 6 (wots_sign), Algorithm 7 (wots_pkFromSig).
     * https://github.com/sphincs/sphincsplus
 
-Security: existential unforgeability under chosen-message attacks in the
-random oracle model, assuming the hash is second-preimage resistant.
+Security: this is a research prototype with an unkeyed, fixed-prefix hash
+("WOTS-CHAIN") and no address input. It therefore does **not** inherit the
+FIPS 205 WOTS+ security argument, and no cryptographic security level is
+claimed here. The parameter choice (n = 32) is a design target, not a
+proven post-quantum strength; see the paper's scope statement.
 """
 
 from __future__ import annotations
@@ -41,6 +44,24 @@ LOG_W = 4        # log2(W)
 LEN1 = (8 * N + (LOG_W - 1)) // LOG_W          # = 64
 LEN2 = math.floor(math.log2(LEN1 * (W - 1)) / LOG_W) + 1  # = 3
 LEN = LEN1 + LEN2                              # = 67
+
+
+def wots_checksum(c: int) -> list[int]:
+    """Encode the integer checksum as LEN2 base-W digits, most significant first.
+
+    Definition (paper, Section 4.2): with C = sum_i (w - 1 - m_i),
+
+        c_j = floor(C / w^(LEN2-1-j)) mod w,   j = 0 .. LEN2-1.
+
+    For w = 16, LEN2 = 3 and the only reachable values are C in [0, 960],
+    so every digit fits. The earlier implementation instead applied
+    ``base_w`` to a 32-byte big-endian encoding of C; because C occupies at
+    most two bytes, the first 30 bytes are zero and all LEN2 digits decode
+    to zero. That defect is why this helper exists and is tested explicitly.
+    """
+    if not 0 <= c < W ** LEN2:
+        raise ValueError(f"checksum {c} out of range for w={W}, len2={LEN2}")
+    return [(c // (W ** (LEN2 - 1 - j))) % W for j in range(LEN2)]
 
 
 def base_w(data: bytes, out_len: int) -> list[int]:
@@ -92,7 +113,7 @@ class WOTSKeyPair:
         digest = H_message(msg)
         msg_digits = base_w(digest, LEN1)
         checksum = sum(W - 1 - d for d in msg_digits)
-        checksum_digits = base_w(checksum.to_bytes(N, "big"), LEN2)
+        checksum_digits = wots_checksum(checksum)
         digits = msg_digits + checksum_digits
         assert len(digits) == LEN
         return [chain(self.sk[i], 0, digits[i]) for i in range(LEN)]
@@ -104,7 +125,7 @@ class WOTSKeyPair:
         digest = H_message(msg)
         msg_digits = base_w(digest, LEN1)
         checksum = sum(W - 1 - d for d in msg_digits)
-        checksum_digits = base_w(checksum.to_bytes(N, "big"), LEN2)
+        checksum_digits = wots_checksum(checksum)
         digits = msg_digits + checksum_digits
         for i in range(LEN):
             recomputed = chain(sig[i], digits[i], W - 1 - digits[i])
@@ -151,5 +172,26 @@ if __name__ == "__main__":
     digits = base_w(b"\xff\x00", 4)
     assert digits == [15, 15, 0, 0], f"base_w got {digits}"
     print("[ok] base_w sanity: \\xff\\x00 ->", digits)
+
+    # checksum encoding boundaries (the defect this revision fixes)
+    for c, want in [(0, [0, 0, 0]), (1, [0, 0, 1]), (15, [0, 0, 15]),
+                    (16, [0, 1, 0]), (959, [3, 11, 15]), (960, [3, 12, 0])]:
+        got = wots_checksum(c)
+        assert got == want, f"wots_checksum({c}) = {got}, want {want}"
+        assert 0 <= sum(d * (W ** (LEN2 - 1 - j)) for j, d in enumerate(got)) < W ** LEN2
+    print("[ok] checksum boundaries: 0,1,15,16,959,960")
+
+    # the legacy encoding returned zeros for every reachable checksum
+    for c in (464, 504, 554, 960):
+        legacy = base_w(c.to_bytes(32, "big"), LEN2)
+        assert legacy == [0, 0, 0], f"legacy encoding unexpectedly non-zero: {legacy}"
+    print("[ok] legacy defect reproduced: to_bytes(32,'big') -> [0,0,0]")
+
+    # checksum-chain binding: advancing a checksum chain by one step must fail
+    bad = list(sig)
+    bad[LEN1] = chain(bad[LEN1], 0, 1)
+    assert not WOTSKeyPair.verify(msg, bad, kp.pk), \
+        "checksum-chain advance accepted (binding broken)"
+    print("[ok] checksum-chain binding")
 
     print("=== WOTS+ self-test passed ===")

@@ -1,0 +1,299 @@
+{
+  "per_config": {
+    "w=4,h=4": {
+      "explicit": {
+        "n": 45,
+        "mean_ms": 0.1761093111111111,
+        "sd_ms": 0.05968872111776007,
+        "median_ms": 0.157834,
+        "q1_ms": 0.149041,
+        "q3_ms": 0.169792,
+        "iqr_ms": 0.02075099999999999,
+        "min_ms": 0.142083,
+        "max_ms": 0.486542
+      },
+      "compact": {
+        "n": 45,
+        "mean_ms": 0.16230184444444445,
+        "sd_ms": 0.06913463227643567,
+        "median_ms": 0.141333,
+        "q1_ms": 0.134417,
+        "q3_ms": 0.145291,
+        "iqr_ms": 0.010873999999999995,
+        "min_ms": 0.12725,
+        "max_ms": 0.433666
+      },
+      "tree_level": {
+        "0": {
+          "leaves": 15,
+          "explicit_median_ms": 0.152958,
+          "compact_median_ms": 0.13875
+        },
+        "1": {
+          "leaves": 15,
+          "explicit_median_ms": 0.159834,
+          "compact_median_ms": 0.138708
+        },
+        "2": {
+          "leaves": 15,
+          "explicit_median_ms": 0.162041,
+          "compact_median_ms": 0.142583
+        }
+      },
+      "paired_diff_explicit_minus_compact": {
+        "median_ms": 0.014667000000000013,
+        "q1_ms": 0.013500000000000012,
+        "q3_ms": 0.01941699999999999,
+        "iqr_ms": 0.005916999999999978,
+        "mean_ms": 0.013807466666666665,
+        "explicit_slower_share": 0.9111111111111111
+      }
+    },
+    "w=4,h=8": {
+      "explicit": {
+        "n": 45,
+        "mean_ms": 0.18253791111111112,
+        "sd_ms": 0.09144598089553453,
+        "median_ms": 0.156541,
+        "q1_ms": 0.150792,
+        "q3_ms": 0.16275,
+        "iqr_ms": 0.011957999999999996,
+        "min_ms": 0.145208,
+        "max_ms": 0.660375
+      },
+      "compact": {
+        "n": 45,
+        "mean_ms": 0.1714343111111111,
+        "sd_ms": 0.10964650100246166,
+        "median_ms": 0.1405,
+        "q1_ms": 0.135042,
+        "q3_ms": 0.145333,
+        "iqr_ms": 0.010290999999999995,
+        "min_ms": 0.128833,
+        "max_ms": 0.650209
+      },
+      "tree_level": {
+        "0": {
+          "leaves": 15,
+          "explicit_median_ms": 0.155917,
+          "compact_median_ms": 0.143042
+        },
+        "1": {
+          "leaves": 15,
+          "explicit_median_ms": 0.158334,
+          "compact_median_ms": 0.140709
+        },
+        "2": {
+          "leaves": 15,
+          "explicit_median_ms": 0.153125,
+          "compact_median_ms": 0.135833
+        }
+      },
+      "paired_diff_explicit_minus_compact": {
+        "median_ms": 0.016167000000000015,
+        "q1_ms": 0.014040999999999998,
+        "q3_ms": 0.019708000000000003,
+        "iqr_ms": 0.005667000000000005,
+        "mean_ms": 0.011103600000000002,
+        "explicit_slower_share": 0.9111111111111111
+      }
+    },
+    "w=16,h=4": {
+      "explicit": {
+        "n": 45,
+        "mean_ms": 0.2993157777777778,
+        "sd_ms": 0.14232880530129854,
+        "median_ms": 0.257083,
+        "q1_ms": 0.240375,
+        "q3_ms": 0.281792,
+        "iqr_ms": 0.04141699999999998,
+        "min_ms": 0.22075,
+        "max_ms": 0.992792
+      },
+      "compact": {
+        "n": 45,
+        "mean_ms": 0.28552964444444445,
+        "sd_ms": 0.13349410449429722,
+        "median_ms": 0.239375,
+        "q1_ms": 0.227333,
+        "q3_ms": 0.261584,
+        "iqr_ms": 0.034250999999999976,
+        "min_ms": 0.208958,
+        "max_ms": 0.90225
+      },
+      "tree_level": {
+        "0": {
+          "leaves": 15,
+          "explicit_median_ms": 0.242083,
+          "compact_median_ms": 0.230334
+        },
+        "1": {
+          "leaves": 15,
+          "explicit_median_ms": 0.259333,
+          "compact_median_ms": 0.241459
+        },
+        "2": {
+          "leaves": 15,
+          "explicit_median_ms": 0.281375,
+          "compact_median_ms": 0.284667
+        }
+      },
+      "paired_diff_explicit_minus_compact": {
+        "median_ms": 0.013583999999999985,
+        "q1_ms": 0.008624999999999994,
+        "q3_ms": 0.018833000000000016,
+        "iqr_ms": 0.010208000000000023,
+        "mean_ms": 0.013786133333333329,
+        "explicit_slower_share": 0.8444444444444444
+      }
+    },
+    "w=16,h=8": {
+      "explicit": {
+        "n": 45,
+        "mean_ms": 0.2785693777777778,
+        "sd_ms": 0.1334199005490303,
+        "median_ms": 0.249416,
+        "q1_ms": 0.242583,
+        "q3_ms": 0.272209,
+        "iqr_ms": 0.029625999999999986,
+        "min_ms": 0.222959,
+        "max_ms": 1.132041
+      },
+      "compact": {
+        "n": 45,
+        "mean_ms": 0.2919602888888889,
+        "sd_ms": 0.20242609719549753,
+        "median_ms": 0.242375,
+        "q1_ms": 0.234084,
+        "q3_ms": 0.257709,
+        "iqr_ms": 0.023625000000000035,
+        "min_ms": 0.207625,
+        "max_ms": 1.487791
+      },
+      "tree_level": {
+        "0": {
+          "leaves": 15,
+          "explicit_median_ms": 0.276959,
+          "compact_median_ms": 0.253375
+        },
+        "1": {
+          "leaves": 15,
+          "explicit_median_ms": 0.24575,
+          "compact_median_ms": 0.23275
+        },
+        "2": {
+          "leaves": 15,
+          "explicit_median_ms": 0.249416,
+          "compact_median_ms": 0.2435
+        }
+      },
+      "paired_diff_explicit_minus_compact": {
+        "median_ms": 0.010540999999999995,
+        "q1_ms": 0.005707000000000018,
+        "q3_ms": 0.017500000000000016,
+        "iqr_ms": 0.011792999999999998,
+        "mean_ms": -0.013390911111111115,
+        "explicit_slower_share": 0.8666666666666667
+      }
+    },
+    "w=256,h=4": {
+      "explicit": {
+        "n": 45,
+        "mean_ms": 2.1189759333333336,
+        "sd_ms": 0.7911747167765618,
+        "median_ms": 1.940542,
+        "q1_ms": 1.69525,
+        "q3_ms": 2.151084,
+        "iqr_ms": 0.4558340000000001,
+        "min_ms": 1.387791,
+        "max_ms": 5.312833
+      },
+      "compact": {
+        "n": 45,
+        "mean_ms": 2.4910972444444446,
+        "sd_ms": 2.1911501679472125,
+        "median_ms": 1.968292,
+        "q1_ms": 1.774834,
+        "q3_ms": 2.229416,
+        "iqr_ms": 0.45458200000000004,
+        "min_ms": 1.3595,
+        "max_ms": 15.942167
+      },
+      "tree_level": {
+        "0": {
+          "leaves": 15,
+          "explicit_median_ms": 1.795458,
+          "compact_median_ms": 1.951833
+        },
+        "1": {
+          "leaves": 15,
+          "explicit_median_ms": 2.036417,
+          "compact_median_ms": 2.242083
+        },
+        "2": {
+          "leaves": 15,
+          "explicit_median_ms": 1.940542,
+          "compact_median_ms": 1.8225
+        }
+      },
+      "paired_diff_explicit_minus_compact": {
+        "median_ms": 0.01737499999999992,
+        "q1_ms": -0.23424899999999993,
+        "q3_ms": 0.070376,
+        "iqr_ms": 0.3046249999999999,
+        "mean_ms": -0.37212131111111113,
+        "explicit_slower_share": 0.6
+      }
+    },
+    "w=256,h=8": {
+      "explicit": {
+        "n": 45,
+        "mean_ms": 2.1999610888888887,
+        "sd_ms": 0.8470711957698399,
+        "median_ms": 1.921625,
+        "q1_ms": 1.778625,
+        "q3_ms": 2.094375,
+        "iqr_ms": 0.31575,
+        "min_ms": 1.53175,
+        "max_ms": 5.657208
+      },
+      "compact": {
+        "n": 45,
+        "mean_ms": 2.1079832666666665,
+        "sd_ms": 0.5724993892996108,
+        "median_ms": 1.937958,
+        "q1_ms": 1.783708,
+        "q3_ms": 2.161083,
+        "iqr_ms": 0.377375,
+        "min_ms": 1.504041,
+        "max_ms": 4.0325
+      },
+      "tree_level": {
+        "0": {
+          "leaves": 15,
+          "explicit_median_ms": 1.842584,
+          "compact_median_ms": 1.8285
+        },
+        "1": {
+          "leaves": 15,
+          "explicit_median_ms": 1.993959,
+          "compact_median_ms": 1.998833
+        },
+        "2": {
+          "leaves": 15,
+          "explicit_median_ms": 2.118459,
+          "compact_median_ms": 2.245917
+        }
+      },
+      "paired_diff_explicit_minus_compact": {
+        "median_ms": 0.030833000000000332,
+        "q1_ms": -0.04937400000000003,
+        "q3_ms": 0.1355409999999999,
+        "iqr_ms": 0.18491499999999994,
+        "mean_ms": 0.0919778222222222,
+        "explicit_slower_share": 0.5777777777777777
+      }
+    }
+  },
+  "note": "Generated by experiments/robust_stats.py from results_submission.json. All raw samples retained; no outlier removed. Median/IQR complement the mean +/- SD of Table 8 because a minority of long-tailed samples inflates the sample standard deviation (see min/max). Tree-level medians treat each of the three independent trees as a grouping unit; within-tree observations share a root and path structure."
+}

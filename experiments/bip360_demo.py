@@ -59,12 +59,16 @@ class Secp256k1Leaf:
     pubkey: bytes  # 32-byte x-only pubkey (simulated)
 
     def script_bytes(self) -> int:
-        # OP_PUSHBYTES_32 <pubkey> OP_CHECKSIG
-        return 1 + 32 + 1
+        # [size] OP_PUSHBYTES_32 <pubkey> OP_CHECKSIG
+        # (size prefix + OP_PUSHBYTES_32 + 32-byte pubkey + OP_CHECKSIG)
+        return 1 + 1 + 32 + 1
 
     def witness_size_spend(self, has_sig: bool = True) -> int:
-        # count(1) + sig(65) + leaf script(34) + control block(33, depth-1)
-        return 1 + (65 if has_sig else 0) + self.script_bytes() + 33
+        # count(1) + [size]sig(65) + [size]leaf script(35)
+        # + [size]control block(34, depth-1)
+        # Matches the BIP 360 specification's depth-1 P2MR witness of 135 bytes
+        # (1 + 65 + 35 + 34); the P2TR key-path baseline is 66 bytes.
+        return 1 + (65 if has_sig else 0) + self.script_bytes() + 34
 
 
 @dataclasses.dataclass
@@ -80,18 +84,22 @@ class WOTSLeaf:
     w: int
 
     def script_bytes(self) -> int:
-        # Future OP_WOTS_VERIFY leaf: opcode + parameter byte (w) + length.
+        # Three-byte script placeholder (opcode + parameter byte + length),
+        # the same assumption as Section 8.3's "(1 + 3)".
         return 1 + 1 + 1
 
     def witness_size_spend(self, wots_sig: list[bytes], depth: int) -> int:
-        # count(1) + wots_sig(L*n) + wots_pk(L*n) + leaf script(3)
-        # + control block(1 + 32*depth)
-        control = 1 + 32 * depth
+        # count(1) + [size]wots_sig(67 items) + [size]wots_pk(67 items)
+        # + [size]leaf script + [size]control block, where each witness item
+        # carries its own compact-size length prefix:
+        #   1 + 134*(1+32) + (1+3) + (1+33) = 4,461 bytes at depth 1 for w=16,
+        # matching the paper's Section 8.3 corrected accounting.
+        control_block = 1 + 32 * depth  # control byte + merkle path
         return (1
-                + sum(len(x) for x in wots_sig)
-                + sum(len(x) for x in self.wots_pk)
-                + self.script_bytes()
-                + control)
+                + sum(1 + len(x) for x in wots_sig)
+                + sum(1 + len(x) for x in self.wots_pk)
+                + 1 + self.script_bytes()
+                + 1 + control_block)
 
 
 # ---------------------------------------------------------------------------

@@ -143,9 +143,18 @@ def main():
     ax2.grid(axis="y", alpha=0.3)
 
     fig.tight_layout()
-    fig.savefig(OUT / "figures" / "figure3.png", dpi=160)
+    # Two names point at the same Figure 3: `figure3.png/.svg` is the working
+    # output of this script, while `fig_submission.png/.pdf/.eps` is what
+    # paper_jce.md references.  Both are (re)written here at 300 dpi so the
+    # embedded figure is never stale.
+    fig.savefig(OUT / "figures" / "figure3.png", dpi=300)
     fig.savefig(OUT / "figures" / "figure3.svg")
-    print("[written] figure3.png / figure3.svg")
+    fig.savefig(OUT / "figures" / "fig_submission.png", dpi=300)
+    fig.savefig(OUT / "figures" / "fig_submission.pdf", dpi=300,
+                facecolor="white")
+    fig.savefig(OUT / "figures" / "fig_submission.eps", dpi=300,
+                facecolor="white")
+    print("[written] figure3.png / figure3.svg / fig_submission.png/.pdf/.eps")
 
     trav_out = {
         "per_config": trav,

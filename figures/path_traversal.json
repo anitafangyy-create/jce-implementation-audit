@@ -1,50 +1,50 @@
 {
   "per_config": {
     "w=4,h=4": {
-      "rebuilt_median_ms": 0.006916,
-      "cached_median_ms": 0.000416,
+      "rebuilt_median_ms": 0.007875,
+      "cached_median_ms": 0.000375,
       "rebuilt_n": 45,
       "cached_n": 45
     },
     "w=4,h=8": {
-      "rebuilt_median_ms": 0.105916,
+      "rebuilt_median_ms": 0.122458,
       "cached_median_ms": 0.000708,
       "rebuilt_n": 45,
       "cached_n": 45
     },
     "w=16,h=4": {
-      "rebuilt_median_ms": 0.006667,
+      "rebuilt_median_ms": 0.008,
       "cached_median_ms": 0.000375,
       "rebuilt_n": 45,
       "cached_n": 45
     },
     "w=16,h=8": {
-      "rebuilt_median_ms": 0.105834,
+      "rebuilt_median_ms": 0.124417,
       "cached_median_ms": 0.000791,
       "rebuilt_n": 45,
       "cached_n": 45
     },
     "w=256,h=4": {
-      "rebuilt_median_ms": 0.006709,
+      "rebuilt_median_ms": 0.008,
       "cached_median_ms": 0.000375,
       "rebuilt_n": 45,
       "cached_n": 45
     },
     "w=256,h=8": {
-      "rebuilt_median_ms": 0.101625,
-      "cached_median_ms": 0.000625,
+      "rebuilt_median_ms": 0.120167,
+      "cached_median_ms": 0.000666,
       "rebuilt_n": 45,
       "cached_n": 45
     }
   },
   "height_means": {
     "h=4": {
-      "rebuilt": 0.006764,
-      "cached": 0.00038866666666666666
+      "rebuilt": 0.007958333333333333,
+      "cached": 0.000375
     },
     "h=8": {
-      "rebuilt": 0.10445833333333333,
-      "cached": 0.000708
+      "rebuilt": 0.12234733333333334,
+      "cached": 0.0007216666666666667
     }
   },
   "note": "Per-base medians over 45 observations; height means average the three per-base medians."
