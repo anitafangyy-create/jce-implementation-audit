@@ -40,3 +40,6 @@ bench/native/_build/
 
 # Starter package synthetic output (not project data; kept only as reference material)
 merkle_wots_experiment_starter/results/
+
+# External review starter package (synthetic reference material, not project data)
+merkle_wots_experiment_starter/
