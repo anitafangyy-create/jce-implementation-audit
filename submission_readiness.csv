@@ -1,0 +1,55 @@
+item_id,priority,status,owner,manuscript_section,command_or_method,evidence_file,acceptance_result,review_date
+A1,P0,PASSED,authors,§2.2、§4.1–4.3,论文实现对照 + 附录 A 伪代码,paper/paper_jce.md §4 + evidence/t01/t02/t03.log,算法步骤与源码映射一致；不同实现对编码细节无歧义,2026-10-19
+A2,P0,PASSED,authors,§4.2、附录 A,audit/audit_jce.py checksum_boundary_tests(3 oracle×9 case) + tests/test_encoding.py(24 cases×3 bases),evidence/a06_audit_jce.log + evidence/t01_encoding.log,w=4/16/256 零值/最大值/进位/多字节边界全过；期望值由独立计算产生,2026-10-19
+A3,P0,PASSED,authors,§2.2、§4、附录 A,kat_wots.json 标注 local regression；kat_128s.rsp(404) 披露且未被引用,paper/paper_jce.md §4.2 + evidence/a06_audit_jce.log,本地回归向量与 NIST 一致性向量明确区分；标准符合性不作声明,2026-10-19
+A4,P0,PASSED,authors,§4.3、§6.4–6.5,audit_jce repaired 检查 + test_encoding 无效输入,evidence/a06_audit_jce.log + evidence/t01_encoding.log,w=4/16/256 roundtrip/endpoint_recovery ok；tamper/wrong_message/truncation 全拒绝,2026-10-19
+A5,P0,PASSED,authors,§2.2、§7.1、§10,论文安全边界声明逐句核验,paper/paper_jce.md §2.2/§7.1/§10,无安全等级分配；不继承 WOTS+/XMSS/SLH-DSA 安全结论；EUF-CMA 等强措辞已删,2026-10-19
+A6,P1,PASSED,authors,§4、§7.1,论文域分离说明（SUB-SK/SUB-LEAF/UMT-LEAF/UMT-NODE）,paper/paper_jce.md §7.1,域标签/参数绑定编码说明 + 限制披露；不将代码审计写成安全证明,2026-10-19
+B1,P0,PASSED,authors,§6.4–6.6、表 9/9b、图 3,固定种子 random.Random(20260915) 逐消息重跑 6 配置,reports/DATA_AUTHENTICITY_AUDIT.md 注记 4 + experiments/results_submission.json,270/270 消息/索引/字节/正确性逐条一致（mismatches=0）,2026-10-19
+B2,P0,PASSED,authors,§3、§5、§6,tests/test_chain_counts + test_serialization + test_paper_numbers,evidence/t02_chain_counts.log + evidence/t03_serialization.log + evidence/t05_paper_numbers.log,4 配置 theory==runtime、T_sign+T_verify==L(w-1)；6 配置序列化==项和,2026-10-19
+B3,P0,PASSED,authors,§4.3、§6.4–6.6,robust_stats 配对分析（显式 vs 紧凑，同一组消息）,evidence/a11_robust_stats.log + experiments/robust_stats.json,两种模式协议含义/验证边界一致；配对 diff+IQR 报告,2026-10-19
+B4,P1,PASSED,authors,§6.4、§6.6、§6.8,results_submission_sessions.json（s1/s2/s3 旋转顺序 + cooldown）,experiments/results_submission_sessions.json + experiments/_sessions/,三会话独立、保留中位规则预先固定；跨会话波动 5–17% 已披露,2026-10-19
+B5,P0,PASSED,authors,§6.4、图 3、表 9b、表 11a,论文统计单位声明 + test_paper_numbers 对账,paper/paper_jce.md + evidence/t05_paper_numbers.log,median/IQR（表 9b）与 mean±SD（表 11）单位显式；不把同树重复当独立树,2026-10-19
+B6,P1,PASSED,authors,§6.6、§9.3,robust_stats per-tree 配对 Δ + 三会话中位,evidence/a11_robust_stats.log + experiments/results_submission_sessions.json,树级配对已做；cluster bootstrap 列入 §9.3 future work（诚实未做）,2026-10-19
+B7,P1,PASSED,authors,§5、§6.6、§6.8,表 9/表 11 操作拆分,paper/paper_jce.md 表 9/表 11,keygen/sign/verify/recover 分列；实测 vs 模型推算可区分,2026-10-19
+B8,P0,PASSED,authors,§6.8、表 11a,"bench/native/build.sh 重建 + bench_proto 对拍（root/leaf byte-identical h=1,2,4,7,8）",evidence/native_build.log + paper/paper_jce.md §6.7,5 可执行编译运行成功；Python/C 根与叶一致性记录在案,2026-10-19
+B9,P1,PASSED,authors,§2.1、§6.7–6.8、§10,表 8/表 11 边界声明,paper/paper_jce.md 表 8/表 11,non-equivalent-security；描述性实现基准；不同语言/边界分开讨论,2026-10-19
+C1,P0,PASSED,authors,§7.4–7.5,audit/state_model_jce.py,evidence/a07_state_model.log + audit/state_model_jce.json,不变量全真；恢复反例（confirmed-chain 无法区分未确认暴露）输出,2026-10-19
+C2,P0,PASSED,authors,§7.6、表 15,state_demo/test_state.py,evidence/a09_state_demo.log,6 故障注入 PASS（reuse denied/crash-after-reserve/partial rollback/n=8 并发/tamper/capacity）,2026-10-19
+C3,P0,PASSED,authors,§7.6、表 15,audit/state_persistence_tests.py,evidence/a10_state_persistence.log,crash 前/后 COMMIT + 并发 + 回滚 all_as_expected=True,2026-10-19
+C4,P0,PASSED,authors,§7.2、§7.4、§7.6,crash-after-reserve 测试（durable-before-release 语义）,evidence/a09_state_demo.log + evidence/a10_state_persistence.log,预留提交后崩溃索引不重用；暴露前崩溃保守处理,2026-10-19
+C5,P0,PASSED,authors,§7.4、§7.6、表 15,epoch 回滚检测 + ST-10 不可检测边界披露,evidence/a10_state_persistence.log + paper/paper_jce.md 表 15,一致快照回滚可续（epoch 不倒退）；旧备份回滚检测 root_disabled；全本地回滚不可检测已如实披露,2026-10-19
+C6,P1,PASSED,authors,§7.4、§7.6,8 进程/16 线程并发申请测试,evidence/a10_state_persistence.log + evidence/a09_state_demo.log,并发唯一性通过；单机测试，未声称跨设备线性一致性,2026-10-19
+C7,P1,PASSED,authors,§4、§7.6、§9.3,audit_jce state-boundary（并发交错 3 seeds×12 requests + 快照/回滚）,evidence/a06_audit_jce.log,交错唯一；旧备份回滚 detected+root_disabled+不重发已耗索引,2026-10-19
+C8,P0,PASSED,authors,§7.4–7.6、§10,论文三层证据 + 表 15 分层,paper/paper_jce.md §7.4–7.6,抽象模型/原型测试/系统级保证明确分层；生产级保证未声称,2026-10-19
+D1,P0,PASSED,authors,§8.1–8.3,论文 illustrative 声明,paper/paper_jce.md §8,非协议集成；未声称 Bitcoin 共识验证；bc1z/占位脚本为作者示意假设,2026-10-19
+D2,P0,PASSED,authors,§8.3,tests/test_bip360_vectors.py + bip360_demo,evidence/t04_bip360_vectors.log + experiments/bip360_demo.json,"4,461/135/66 B witness 口径独立重算；栈元素/CompactSize/控制块前提可追溯",2026-10-19
+D3,P1,IN_PROGRESS,authors,§1、§8、§10,（可选）Bitcoin 正文压缩/附录化,—,当前 §8 已为示意核算且篇幅受控；压缩为可选增强,2026-10-19
+D4,P0,PASSED,authors,§8.1–8.2,test_bip360_vectors envelope rules,evidence/t04_bip360_vectors.log,仅覆盖脚本树/地址编码层；不把外壳测试写成自定义签名共识验证,2026-10-19
+E1,P0,PASSED,authors,§3.1、§9.1–9.2,ARTIFACT_MANIFEST 75 项 + git 提交 4c54de0/86fdb1b,ARTIFACT_MANIFEST.txt,75/75 与工作树一致；论文引用文件全部在库,2026-10-19
+E2,P0,IN_PROGRESS,authors,§9.1、README、Makefile,make test（本地全绿）+ bench/native/build.sh 重建成功,evidence/*.log,本地复现通过；干净容器/CI 复现待作者执行,2026-10-19
+E3,P0,BLOCKED,author-action,§9.2,公开仓库 + 固定 commit + release,—,需作者创建公开仓库后回填 URL,2026-10-19
+E4,P0,BLOCKED,author-action,§9.2,Zenodo/等效长期归档 + DOI,—,需作者选择归档平台,2026-10-19
+E5,P0,PASSED,authors,表 9/9b/11a、附录 B,tests/test_paper_numbers.py + experiments/sync_paper_tables.py,evidence/t05_paper_numbers.log + evidence/a12_sync_tables.log,论文数字与源数据一致；无未同步手工数字,2026-10-19
+E6,P0,PASSED,authors,附录 A,kat_128s.rsp(14B '404: Not Found') 披露且未被任何验证流程引用,paper/paper_jce.md §4.2 + README + evidence/a06_audit_jce.log,404 不作为有效测试向量；本地向量独立标注,2026-10-19
+E7,P0,BLOCKED,author-action,§9.2、投稿系统,AI 辅助使用声明 + 作者责任确认,—,需作者按目标期刊 AI 政策填写,2026-10-19
+E8,P1,PASSED,authors,README、环境锁定,环境元数据（CPU/compiler/PQClean commit 0586a82）+ 重建验证,evidence/native_build.log + experiments/native_results_sessions.json,依赖可追溯；PQClean 提交固定且已核验,2026-10-19
+E9,P1,PASSED,authors,§9.1–9.2,evidence/ 目录 12 项验收日志,evidence/*.log,每项结果有执行记录、退出码与输出,2026-10-19
+F1,P0,PASSED,authors,§1–2,论文贡献区分（审计发现/工程测量/已知技术）,paper/paper_jce.md §1–2,不把已知技术写成新贡献；不把工程原型包装为新安全算法,2026-10-19
+F2,P1,PASSED,authors,§2.4、表 1,相关工作表,paper/paper_jce.md 表 1,比较项有来源；不把'本文未做'写成'此前没人做过',2026-10-19
+F3,P0,PASSED,authors,References,11 条文献逐条核验 + [8][10][11] 修正（上一轮完成）,reports/RESPONSE_TO_REVIEWERS.md,全部真实；[7] 已独立确认；[8] LNCS 规范；[10][11] 固定 commit 链接,2026-10-19
+F4,P1,PASSED,authors,§6、§7、§10,强措辞扫描（guarantee/secure/faster/outperform）,paper/paper_jce.md 全文,所有强措辞均带边界与精确数字；跨实现比较不夸大,2026-10-19
+F5,P1,IN_PROGRESS,authors,全文,术语/符号/表图引用交叉检查,—,需终稿通读；脚本层引用已由 make test 校验,2026-10-19
+F6,P0,BLOCKED,author-action,全文及投稿系统,目标期刊格式（Springer iicol LaTeX/Word）,—,需作者选定期刊；300 dpi 图与 pdf/eps 矢量版已备齐,2026-10-19
+F7,P0,BLOCKED,author-action,Cover Letter,期刊确定后起草,—,需作者提供期刊范围与投稿定位,2026-10-19
+F8,P0,BLOCKED,author-action,Title Page/投稿系统,作者/机构/资助/利益冲突/原创性声明,—,需作者逐项确认,2026-10-19
+R01,P0,PASSED,authors,E1,git 提交 4c54de0/86fdb1b + MANIFEST 75 项,ARTIFACT_MANIFEST.txt,源码/JSON/测试向量/C harness/依赖全部在库,2026-10-19
+R02,P0,PASSED,authors,A4/B2,tests/test_encoding + test_chain_counts + test_serialization,evidence/t01/t02/t03,编码/链计数/序列化长度全过,2026-10-19
+R03,P0,PASSED,authors,A2,audit/audit_jce.py,evidence/a06_audit_jce.log,checksum 边界 + key-identity + state-boundary 全过,2026-10-19
+R04,P0,PASSED,authors,B1,固定种子逐消息重跑,reports/DATA_AUTHENTICITY_AUDIT.md 注记 4,270/270 一致；权威样本未替换（重跑会破坏 MANIFEST）,2026-10-19
+R05,P0,PASSED,authors,B5/B6,robust_stats.py + test_paper_numbers.py,evidence/a11 + evidence/t05,统计单位显式；论文数字与源数据一致,2026-10-19
+R06,P0,PASSED,authors,C1,audit/state_model_jce.py,evidence/a07_state_model.log,状态/转移计数与不变量+反例输出,2026-10-19
+R07,P0,PASSED,authors,C2/C3,state_demo/test_state.py + audit/state_persistence_tests.py,evidence/a09 + evidence/a10,文件后端 6 PASS + SQLite all_as_expected=True,2026-10-19
+R08,P0,PASSED,authors,B8,bench/native/build.sh 重建 + bench_proto,evidence/native_build.log,C harness 编译运行成功；Python/C 根叶一致记录在案,2026-10-19
+R09,P0,PASSED,authors,E5,sync_paper_tables.py + test_paper_numbers.py,evidence/a12 + evidence/t05,表 9/9b/稳健统计段与数据匹配,2026-10-19
+R10,P0,BLOCKED,author-action,E3/E4,公开仓库 + 固定 commit + DOI 归档,—,需作者操作（唯一未完成的 P0 硬门槛）,2026-10-19

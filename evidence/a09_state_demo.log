@@ -1,0 +1,8 @@
+[PASS] reuse denied (durable allocator)
+[PASS] crash after reserve burns leaf (no reuse)
+[PASS] partial rollback detected (high-water mark)
+[PASS] concurrent reservations distinct (n=8)
+[PASS] tampered log detected (hash chain)
+[PASS] capacity enforced
+
+6/6 tests passed

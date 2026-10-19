@@ -81,3 +81,16 @@ abdca9e95a3f09320a32ab19784066049be014f711db7b106182412c160440ca   104362  exper
 e04eb30ff140009d8edc506b95131818702789ef3d7764f4c4e6989644a79d91    16992  audit/data_authenticity_audit.py
 608b48ac15189c1a09048fad961c79a6fb24a9583f88ab28905e7c694f0b6a4f     2314  audit/data_authenticity_audit.json
 1da543d981fa55e72b2e030df9018a31d8a2a39ca0545dc0223a16ac2968181b     7606  reports/DATA_AUTHENTICITY_AUDIT.md
+95bcc0ef137cee1bb5c263aed81cff178973ed4211131fd34eb7c419f3a29f93     2998  evidence/a06_audit_jce.log
+7cd2458443177c2a46f62b57acb2b35b2ef36b18d87cf0d555109d587e8b7c78      914  evidence/a07_state_model.log
+287b1e04341d9545392ebb02a9df8060f72f707196f7c79c889f229bcf3fb44e       49  evidence/a08_data_auth.log
+665d7fa5d697914db7d392b02f79edf80b955c602f62ac92fa88be82413cfc9c      271  evidence/a09_state_demo.log
+9a9ffbbebe1d7a9afc9ca046731c234ecab5ea8bd96e245eb4e6d55e68277337     1229  evidence/a10_state_persistence.log
+bf733d88fd3011e4f5d577507bff9708529d7b02e32d00a65009e2f90b8b9423      917  evidence/a11_robust_stats.log
+b9fe45cc06a5e1304bc7cc8e090315f6ff0cd652b03668ed0191721736b380b7       70  evidence/a12_sync_tables.log
+fcd2be1e992681ab668eff69ed526734b188360e09f95137a2d916968fddf3bc      300  evidence/t01_encoding.log
+5951c5be77f10805926af1febcb4c4bd89b81eb957f0dd96e727acc562092ca2      367  evidence/t02_chain_counts.log
+e032581dde1ab1b3ef3c346e5721559d8503c6118c420d31eb9cb4d59da9ad7b      650  evidence/t03_serialization.log
+f66c21703a02892f1c8792a7a380f8da63691ebe7282fc55f16f89aa9027db83     1287  evidence/t04_bip360_vectors.log
+a89d59eec04d3800ce02fecb773851fcd0b1b2c72b7a8f43f1801cfa1fc44fba     2622  evidence/t05_paper_numbers.log
+1b290a00ea0fe01e742a18be7e04bdbee2d9d60e6617530bee80ed41db9b82d1    11062  submission_readiness.csv

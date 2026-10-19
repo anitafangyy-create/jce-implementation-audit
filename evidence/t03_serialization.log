@@ -1,0 +1,9 @@
+[ok] w=  4 h=4  header= 8 elem= 4256 ep= 4256 path= 128  explicit= 8648 compact= 4392
+[ok] w=  4 h=8  header= 8 elem= 4256 ep= 4256 path= 256  explicit= 8776 compact= 4520
+[ok] w= 16 h=4  header= 8 elem= 2144 ep= 2144 path= 128  explicit= 4424 compact= 2280
+[ok] w= 16 h=8  header= 8 elem= 2144 ep= 2144 path= 256  explicit= 4552 compact= 2408
+[ok] w=256 h=4  header= 8 elem= 1088 ep= 1088 path= 128  explicit= 2312 compact= 1224
+[ok] w=256 h=8  header= 8 elem= 1088 ep= 1088 path= 256  explicit= 2440 compact= 1352
+
+smallest retained configuration: 1224 B (1,216 payload + 8-byte experimental header)
+6 configurations: serializer length == term sum

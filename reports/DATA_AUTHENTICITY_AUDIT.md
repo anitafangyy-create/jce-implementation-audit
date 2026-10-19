@@ -2,7 +2,7 @@
 
 Scope: prove that the numbers cited in the paper come from a real,
 rerunnable pipeline (not fabricated). Evidence below was produced by
-`make audit-data` on 2026-10-19 17:19:50.
+`make audit-data` on 2026-10-19 17:30:35.
 Environment: darwin / CPython 3.14.7
 
 ## A. Deterministic regeneration (5 scripts vs MANIFEST)
@@ -44,15 +44,15 @@ Environment: darwin / CPython 3.14.7
 ## D. Production-path rerun (all 6 configs, same seeds, in-memory)
   script sha256 (current): dd07ab4c889e6dc12afed96f3c67e184c5b0558b6fdbb8d393ef9a439fdb6cba (recorded dd07ab4c889e)
 - [PASS] D0. inline repaired checksum (shift+mask): 270 events use the repaired digit extraction
-  w=4,h=4: 45 rows in 0.09s bytes 8648/4392 (stored 8648/4392) positives=True rejections=True first-use=45/45 OK
-  w=4,h=8: 45 rows in 0.25s bytes 8776/4520 (stored 8776/4520) positives=True rejections=True first-use=45/45 OK
-  w=16,h=4: 45 rows in 0.15s bytes 4424/2280 (stored 4424/2280) positives=True rejections=True first-use=45/45 OK
-  w=16,h=8: 45 rows in 0.44s bytes 4552/2408 (stored 4552/2408) positives=True rejections=True first-use=45/45 OK
-  w=256,h=4: 45 rows in 1.13s bytes 2312/1224 (stored 2312/1224) positives=True rejections=True first-use=45/45 OK
-  w=256,h=8: 45 rows in 3.37s bytes 2440/1352 (stored 2440/1352) positives=True rejections=True first-use=45/45 OK
-- [PASS] D. production rerun reproduces structure/bytes/correctness: all 6 configs: 45 rows, bytes == authoritative, all checks pass (5.4s total)
+  w=4,h=4: 45 rows in 0.10s bytes 8648/4392 (stored 8648/4392) positives=True rejections=True first-use=45/45 OK
+  w=4,h=8: 45 rows in 0.50s bytes 8776/4520 (stored 8776/4520) positives=True rejections=True first-use=45/45 OK
+  w=16,h=4: 45 rows in 0.19s bytes 4424/2280 (stored 4424/2280) positives=True rejections=True first-use=45/45 OK
+  w=16,h=8: 45 rows in 0.53s bytes 4552/2408 (stored 4552/2408) positives=True rejections=True first-use=45/45 OK
+  w=256,h=4: 45 rows in 1.26s bytes 2312/1224 (stored 2312/1224) positives=True rejections=True first-use=45/45 OK
+  w=256,h=8: 45 rows in 4.58s bytes 2440/1352 (stored 2440/1352) positives=True rejections=True first-use=45/45 OK
+- [PASS] D. production rerun reproduces structure/bytes/correctness: all 6 configs: 45 rows, bytes == authoritative, all checks pass (7.2s total)
   timing order-of-magnitude (rerun vs authoritative median, w16h4):
-    rerun explicit median=0.2096 ms | authoritative global median=0.2597 ms
+    rerun explicit median=0.2247 ms | authoritative global median=0.2597 ms
 
 ## E. BIP 360 official vectors (vendored vs upstream)
   vendored: version=1 vectors=9

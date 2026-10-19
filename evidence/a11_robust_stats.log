@@ -1,0 +1,7 @@
+w=4,h=4: explicit med 0.1578 IQR 0.0208 max 0.487 | compact med 0.1413 IQR 0.0109 max 0.434 | diff med +0.0147 explicit_slower 91%
+w=4,h=8: explicit med 0.1565 IQR 0.0120 max 0.660 | compact med 0.1405 IQR 0.0103 max 0.650 | diff med +0.0162 explicit_slower 91%
+w=16,h=4: explicit med 0.2571 IQR 0.0414 max 0.993 | compact med 0.2394 IQR 0.0343 max 0.902 | diff med +0.0136 explicit_slower 84%
+w=16,h=8: explicit med 0.2494 IQR 0.0296 max 1.132 | compact med 0.2424 IQR 0.0236 max 1.488 | diff med +0.0105 explicit_slower 87%
+w=256,h=4: explicit med 1.9405 IQR 0.4558 max 5.313 | compact med 1.9683 IQR 0.4546 max 15.942 | diff med +0.0174 explicit_slower 60%
+w=256,h=8: explicit med 1.9216 IQR 0.3157 max 5.657 | compact med 1.9380 IQR 0.3774 max 4.032 | diff med +0.0308 explicit_slower 58%
+[written] /Users/fangyuanyuan/Downloads/机构项目/量子计算机/jce-implementation-audit/experiments/robust_stats.json

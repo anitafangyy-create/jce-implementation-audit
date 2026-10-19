@@ -1,0 +1,6 @@
+[written] /Users/fangyuanyuan/Downloads/机构项目/量子计算机/jce-implementation-audit/audit/state_model_jce.json
+distinct states: 73
+transition occurrences: 355
+by type: {'reserve(0)': 1, 'crash': 67, 'reorg': 67, 'recover': 67, 'reserve(1)': 4, 'emit(0)': 13, 'reserve(2)': 15, 'emit(1)': 16, 'confirm(0)': 34, 'emit(2)': 15, 'confirm(1)': 32, 'confirm(2)': 24}
+properties: {"all_states_satisfy_invariants": true, "monotonic_consumption": true, "unique_release": true}
+counterexample: {"seed": "identical in both executions", "final_confirmed_chain_A": [0], "final_confirmed_chain_B": [0], "inputs_identical": true, "leaf0_consumed_A": false, "leaf0_consumed_B": true, "leaf0_exposed_A": false, "leaf0_exposed_B": true, "reusable_A_only": true, "conclusion": "confirmed-chain history alone cannot distinguish unconfirmed exposure; exact recovery is ambiguous unless a durable consumption record is kept"}

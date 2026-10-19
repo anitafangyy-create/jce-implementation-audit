@@ -1,0 +1,52 @@
+[ok]   Table 9 w=4,h=4 explicit_verify_ms: 0.176 ± 0.060
+[ok]   Table 9 w=4,h=4 compact_verify_ms: 0.162 ± 0.069
+[ok]   Table 9 w=4,h=8 explicit_verify_ms: 0.183 ± 0.091
+[ok]   Table 9 w=4,h=8 compact_verify_ms: 0.171 ± 0.110
+[ok]   Table 9 w=16,h=4 explicit_verify_ms: 0.299 ± 0.142
+[ok]   Table 9 w=16,h=4 compact_verify_ms: 0.286 ± 0.133
+[ok]   Table 9 w=16,h=8 explicit_verify_ms: 0.279 ± 0.133
+[ok]   Table 9 w=16,h=8 compact_verify_ms: 0.292 ± 0.202
+[ok]   Table 9 w=256,h=4 explicit_verify_ms: 2.119 ± 0.791
+[ok]   Table 9 w=256,h=4 compact_verify_ms: 2.491 ± 2.191
+[ok]   Table 9 w=256,h=8 explicit_verify_ms: 2.200 ± 0.847
+[ok]   Table 9 w=256,h=8 compact_verify_ms: 2.108 ± 0.572
+[ok]   Table 9: 6 rows, sizes and mean ± SD match
+[ok]   Table 9b w=4,h=4 explicit median: 0.1578
+[ok]   Table 9b w=4,h=4 explicit IQR: 0.0208
+[ok]   Table 9b w=4,h=4 compact median: 0.1413
+[ok]   Table 9b w=4,h=4 compact IQR: 0.0109
+[ok]   Table 9b w=4,h=4 paired delta: +0.0147
+[ok]   Table 9b w=4,h=8 explicit median: 0.1565
+[ok]   Table 9b w=4,h=8 explicit IQR: 0.0120
+[ok]   Table 9b w=4,h=8 compact median: 0.1405
+[ok]   Table 9b w=4,h=8 compact IQR: 0.0103
+[ok]   Table 9b w=4,h=8 paired delta: +0.0162
+[ok]   Table 9b w=16,h=4 explicit median: 0.2571
+[ok]   Table 9b w=16,h=4 explicit IQR: 0.0414
+[ok]   Table 9b w=16,h=4 compact median: 0.2394
+[ok]   Table 9b w=16,h=4 compact IQR: 0.0343
+[ok]   Table 9b w=16,h=4 paired delta: +0.0136
+[ok]   Table 9b w=16,h=8 explicit median: 0.2494
+[ok]   Table 9b w=16,h=8 explicit IQR: 0.0296
+[ok]   Table 9b w=16,h=8 compact median: 0.2424
+[ok]   Table 9b w=16,h=8 compact IQR: 0.0236
+[ok]   Table 9b w=16,h=8 paired delta: +0.0105
+[ok]   Table 9b w=256,h=4 explicit median: 1.9405
+[ok]   Table 9b w=256,h=4 explicit IQR: 0.4558
+[ok]   Table 9b w=256,h=4 compact median: 1.9683
+[ok]   Table 9b w=256,h=4 compact IQR: 0.4546
+[ok]   Table 9b w=256,h=4 paired delta: +0.0174
+[ok]   Table 9b w=256,h=8 explicit median: 1.9216
+[ok]   Table 9b w=256,h=8 explicit IQR: 0.3157
+[ok]   Table 9b w=256,h=8 compact median: 1.9380
+[ok]   Table 9b w=256,h=8 compact IQR: 0.3774
+[ok]   Table 9b w=256,h=8 paired delta: +0.0308
+[ok]   Table 9b: 6 rows, medians/IQR/paired delta/share match
+[ok]   Table 11a: 6 rows match native/like-for-like data
+[ok]   Table 10: 2 rows match sphincs_benchmark.json
+[ok]   Table 16: 5 numeric rows match check_counts.json
+[ok]   Table 15: 10 rows, ST-01..ST-10, evidence phrases present
+[ok]   global counts: 270 events / 5,130 checks
+[ok]   environment records CPU, interpreter, OpenSSL, load, session, timestamp
+
+paper numbers match the retained data

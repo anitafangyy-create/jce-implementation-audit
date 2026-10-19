@@ -1,0 +1,16 @@
+[ok] p2mr_single_leaf_script_tree       leaves=1 root=c525714a7f49… ctrl=[1]
+[ok] p2mr_different_version_leaves      leaves=2 root=6c2dc106ab81… ctrl=[33, 33]
+[ok] p2mr_simple_lightning_contract     leaves=2 root=41646f8c1fe2… ctrl=[33, 33]
+[ok] p2mr_two_leaf_same_version         leaves=2 root=ab179431c28d… ctrl=[33, 33]
+[ok] p2mr_three_leaf_complex            leaves=3 root=ccbd66c6f7e8… ctrl=[33, 65, 65]
+[ok] p2mr_three_leaf_alternative        leaves=3 root=2f6b2c5397b6… ctrl=[33, 65, 65]
+[ok] p2mr_duplicate_leaves              leaves=3 root=3ab4f8015301… ctrl=[33, 65, 65]
+[ok] p2mr_misuse_v2_witness_version_with_pubkey_error rejected: P2MR does not support internal pubkeys
+[ok] p2mr_null_or_missing_script_tree_error rejected: P2MR requires a script tree with at least one leaf
+
+[info] demo address: not Bech32m (not bech32m); demo root is UMT-LEAF-based, not TapLeaf, so it cannot match a vector
+[info] witness arithmetic: 4325 B without item prefixes, 4461 B with 134 prefixed items (stored), BIP depth-1 CHECKSIG leaf 135 B
+[info] demo address decodes as Bech32m: False (false is expected and disclosed in Section 8.2)
+
+7 positive vectors: 16 leaf hashes, 7 addresses, 16 control blocks; 2 negative vectors
+BIP-0360 envelope rules reproduced from the vectors

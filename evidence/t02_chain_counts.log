@@ -1,0 +1,7 @@
+[ok] w=  4 h=4  T_sign= 204  T_verify= 195  leaf=1 node=4
+[ok] w= 16 h=4  T_sign= 510  T_verify= 495  leaf=1 node=4
+[ok] w=256 h=4  T_sign=4590  T_verify=4080  leaf=1 node=4
+[ok] w= 16 h=8  T_sign= 435  T_verify= 570  leaf=1 node=8
+[info] w=16 sample: legacy T_sign=545, repaired T_sign=570, delta=25
+
+4 configurations: theory == runtime, T_sign + T_verify == L(w-1)

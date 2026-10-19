@@ -1,0 +1,7 @@
+[ok] w=  4  len1=128 len2=5  C_max=384
+[ok] w= 16  len1= 64 len2=3  C_max=960
+[ok] w=256  len1= 32 len2=2  C_max=8160
+[ok] all_digits: checksum occupies the final len2 positions
+[ok] legacy encoder -> [0,0,0]; src/wots.py encoder -> definition
+
+24 cases x 3 bases passed (E1-E8), plus 2 cross-checks
