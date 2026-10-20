@@ -6,8 +6,8 @@
 # Sep-28 build) and now matches figure3.png; added fig_submission.pdf/.eps vector
 # exports and the two JCE figures to the tracked set.
 # Format: <sha256>  <size-bytes>  <path>
-66020c131179e95410783d7f76b09bc69d01fa145a5a12ddc81ae6ec88e9c30f    88730  paper/paper_jce.md
-28e6def07e352aa73adceb1b5b58e99ea83b45ea488d16184072192e24fbf58e   893524  paper/paper_jce.html
+85ecf1b2e5681dd8fe0c23ea892f0371c22cd653dce1d2696441a18a1f1104f4    88837  paper/paper_jce.md
+68e6973dfa8f66aafeca1f7b321f3e624268194c923610c5bcce4beb6dd39e4e   877231  paper/paper_jce.html
 c9d9caebb6cddf820d3d4d552d5440f613c8466aca97bc393ed2f241439ae277     9747  charts/render_jce.py
 b809377207d107aeb262c7c4421315f94529a8e04ce209417f464a51207e43b2    26168  audit/audit_jce.py
 7f589189f0cf5beb114fe4f8bf94068f6f0b4888e1e7b95ec86487438b5c3c01    16220  audit/audit_jce.json
@@ -52,7 +52,7 @@ a49f8275f820223e2e55faa2d2ee3f6ea289de4606f9f93cb00ff76c3ca749f6      917  bench
 7541d08ede6acf9829424b396b35ebcd5aa3bf645e788e2c8c1b942ddbc68900    41103  experiments/native_results_sessions.json
 3dce9747683cb15518e93f4c0b59968d48961725f33687d17d0abd646ff5194a   183048  figures/fig_native_benchmark.png
 7df4750d09fea4e32b315aa4bf4b2f39696bea6cc94c091076ecd85d98b0b29b     1731  Makefile
-0a48340cd97c65e42731d9c218488f73d2d055b5d1e404f7088c1242f537caf5    25088  SUBMISSION_CHECKLIST.md
+98373a1059ec9bcc185dcd09ce5452f637b4bf798a56b21dbf3258a5dc151330    25233  SUBMISSION_CHECKLIST.md
 85dbb168683754f5bda931bf3c6b8c8126dcdf2e48a85460cdb5f639fceff4fc     8152  src/ledger_store.py
 1a6d75c3e3b267eb03873cf8fcef1a1f59b4fd7cdc884ad22c03dcabdeed354d    12852  audit/state_persistence_tests.py
 21692fe360e8bd1615ef9624e2ba45382284325f6da01ba219df5993f4870c61     1793  audit/state_persistence_tests.json
@@ -64,7 +64,7 @@ ac970c7a2e47a9fddc18259965507bf4e4f59d4f534dc5d1581c697c0a6707b4     3890  tests
 86e7c110ed311cb249da03fd082d4a9b651910fad836824c550e7ef8aeb19696     3738  charts/make_native_figure.py
 ef879ab5e57d443f55e74d5fb9ee9f3103e84aff121a9166e15116daafed3e76    12076  reports/CODE_AUDIT.md
 0047ae12a88bf607be1f781a4d7b3181a4643015d65ad74a3f38ae79ce946901     6544  README.md
-c208c31c79e3bf26e7d3b885d2a29c7cc1fc00b0dbb37b51d476c148987a2683      932  CITATION.cff
+39dbadc8ccc21a03574bc58eaf5f08c06f6b0d9907eb07aaf2a30972489ee455      969  CITATION.cff
 f64e22467e761e02b69f48c3171a0549c37c936b4f593fdfe875f922fc71c7af     7623  experiments/bip360_demo.py
 0ca1d829c357583e7928e042f4a42fd49a12885ee85c7cde160c0b71da475b8c      325  experiments/bip360_demo.json
 2b7986ae0a6d015f92651549483114b8184c494ae99c550ff7a2e35b495ed40b     9885  tests/test_bip360_vectors.py

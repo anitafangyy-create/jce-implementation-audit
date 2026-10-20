@@ -20,5 +20,5 @@ keywords:
   - Merkle tree
   - post-quantum
   - reproducibility
-repository-code: "[GitHub URL after upload]"
+repository-code: "https://github.com/anitafangyy-create/jce-implementation-audit"
 # doi: "[Zenodo concept DOI after upload]"   # TODO: 上传 Zenodo 后回填

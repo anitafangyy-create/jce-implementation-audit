@@ -196,7 +196,8 @@
 - [x] **对账范围扩展**：`tests/test_paper_numbers.py` 现覆盖 Table 9、9b、10、11a、14、15 与 270/5,130 计数；`render_jce.py` 表格数断言 19→20。
 - [x] **HTML 重渲染**：589,487 B、20 表、校验通过；`make test` 全过。
 - [ ] **BIP 360 正文压缩/附录化**：方案 P2 项，尚未执行（当前 §8 已明确为示意核算）。
-- [ ] **公开仓库 + DOI + 版本标签**：作者操作，仍未完成。
+- [x] **公开仓库 + 版本标签**：https://github.com/anitafangyy-create/jce-implementation-audit（tag `v1.0`，commit `8c9e18e`，2026-10-20 上线）。
+- [ ] **Zenodo DOI 归档**：作者操作，仍在待办。
 
 ## 第十二轮（2026-10-19 17:00）：图表 DPI 收尾 + 投稿就绪判定
 
