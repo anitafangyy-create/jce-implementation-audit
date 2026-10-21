@@ -2,7 +2,7 @@
 
 从零实现的 **Lamport OTS / WOTS+ + Merkle 树**研究原型（fixed-prefix 构造）。论文将其定位为实现审计、载荷核算与状态管理的可复现工程研究；**不声称与 NIST FIPS 204（ML-DSA）、FIPS 205（SLH-DSA）的安全等价**，标准方案尺寸仅作为 published size context 引用。研究动机为 **BIP-0360（Pay-to-Merkle-Root）** 所预留的后量子签名脚本路径。
 
-投稿主稿：`paper/paper_jce.html`（Journal of Cryptographic Engineering 修订稿）。中文过程报告见 `reports/`。早期方案论文（已弃用方向）与 NIST 基准工具已拆分为独立仓库，不在此仓库内。
+
 
 ---
 
