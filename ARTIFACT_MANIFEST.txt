@@ -6,8 +6,8 @@
 # Sep-28 build) and now matches figure3.png; added fig_submission.pdf/.eps vector
 # exports and the two JCE figures to the tracked set.
 # Format: <sha256>  <size-bytes>  <path>
-85ecf1b2e5681dd8fe0c23ea892f0371c22cd653dce1d2696441a18a1f1104f4    88837  paper/paper_jce.md
-68e6973dfa8f66aafeca1f7b321f3e624268194c923610c5bcce4beb6dd39e4e   877231  paper/paper_jce.html
+502e6700498409f50ca167eca375c7d22de8ddcdea82885a60425ce2f414db9a    89023  paper/paper_jce.md
+82c432f71157e7f266fc17bd217fbe4981d3a3adc9311391b32a1da4f0f8ad46   877417  paper/paper_jce.html
 c9d9caebb6cddf820d3d4d552d5440f613c8466aca97bc393ed2f241439ae277     9747  charts/render_jce.py
 b809377207d107aeb262c7c4421315f94529a8e04ce209417f464a51207e43b2    26168  audit/audit_jce.py
 7f589189f0cf5beb114fe4f8bf94068f6f0b4888e1e7b95ec86487438b5c3c01    16220  audit/audit_jce.json
